@@ -1,0 +1,34 @@
+{
+  "name": "kit-onboarding-example",
+  "version": "0.0.1",
+  "description": "Exemplo de chamada dos contratos",
+  "main": "index.js",
+  "scripts": {
+    "example": "npx hardhat run --network besu ./example.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.6",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.1",
+    "@openzeppelin/contracts": "^4.8.0",
+    "@typechain/ethers-v5": "^10.1.1",
+    "@typechain/hardhat": "^6.1.4",
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.11.6",
+    "chai": "^4.3.6",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.12.0",
+    "hardhat-gas-reporter": "^1.0.9",
+    "solidity-coverage": "^0.8.2",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.1.1",
+    "typescript": "^4.8.4"
+  }
+}

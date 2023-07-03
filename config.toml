@@ -1,0 +1,64 @@
+# Every possible CLI should be in this file.
+#
+# Please use a plausible value, besu has to at least be able to parse it.
+# If it is a multi-valued CLI make it a TOML array.
+# If it is a number or boolean make it a number or boolean
+# All other config options are strings, and must be quoted.
+
+# Node Information
+# Customizar
+data-path="/caminho/para/a/pasta/data"
+genesis-file="/caminho/para/o/arquivo/genesis.json"
+
+logging="INFO"
+
+# DOCKER | KUBERNETES | AUTO | NONE
+# Customizar
+nat-method="NONE"
+
+min-gas-price=0
+
+# Transaction Pool
+tx-pool-retention-hours=999
+tx-pool-limit-by-account-percentage=1
+tx-pool-max-size=20000
+
+# P2P network
+p2p-enabled=true
+discovery-enabled=true
+#p2p-host="0.0.0.0"
+p2p-port=30303
+max-peers=25
+
+host-allowlist=["*"]
+
+# JSON-RPC
+rpc-http-api=["DEBUG","ETH", "ADMIN", "WEB3", "QBFT", "NET", "EEA", "WEB3", "PRIV", "PERM","TXPOOL","PLUGINS","MINER","TRACE"]
+rpc-http-cors-origins=["*"]
+rpc-http-enabled=true
+rpc-http-max-active-connections=2000
+#rpc-http-authentication-enabled=true
+#rpc-http-authentication-credentials-file="/etc/auth/auth.toml"
+
+# GRAPHQL-RPC
+graphql-http-enabled=false
+graphql-http-host="0.0.0.0"
+graphql-http-port=8547
+graphql-http-cors-origins=["*"]
+
+# WebSockets API
+rpc-ws-enabled=false
+rpc-ws-host="0.0.0.0"
+rpc-ws-port=8546
+rpc-ws-api=["DEBUG","ETH", "ADMIN", "WEB3", "QBFT", "NET", "EEA", "WEB3", "PRIV", "PERM"]
+rpc-ws-authentication-enabled=false
+
+# Metrics
+metrics-enabled=false
+metrics-host="0.0.0.0"
+metrics-port=9545
+
+# Permissioning (descomentar esses paramêtros quando for habilitar a permissão)
+# permissions-nodes-contract-enabled=true/false
+# permissions-nodes-contract-address="0x3821eC14ECCF3FEe769B22239184A873a1aa2065"
+# permissions-nodes-contract-version=2
