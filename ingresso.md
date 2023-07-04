@@ -108,8 +108,8 @@ Importante realizar este teste na porta de _discovery_ tanto para o protocolo TC
     | main | INFO | FullSyncTargetManager | Unable to find sync target. Currently checking 0 peers for usefulness*
     ```
 
-* Se ok, execute a API `ADMIN\admin_nodeInfo` para obter o endereço (atributo **enode** da resposta) do seu nó, 
-pois você usará esse dado no passo de permissionamento do nó na rede do piloto.
+* Uma vez iniciado, execute a API `ADMIN\admin_nodeInfo` para obter o endereço (atributo **enode** da resposta) do seu nó, 
+pois você usará esse dado no passo de permissionamento do nó na rede do piloto. Certifique-se de que o endereço fornecido na resposta à consulta seja o IP público da RSFN que será utilizado pelo participante ao longo do piloto.
 
 O retorno da API será algo parecido com o abaixo:
 
