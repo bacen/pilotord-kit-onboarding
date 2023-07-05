@@ -133,7 +133,7 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "cnpj8",
         "type": "uint256"
       }
     ],
