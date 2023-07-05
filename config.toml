@@ -59,6 +59,6 @@ metrics-host="0.0.0.0"
 metrics-port=9545
 
 # Permissioning (descomentar esses paramêtros quando for habilitar a permissão)
-# permissions-nodes-contract-enabled=true/false
-# permissions-nodes-contract-address="0x3821eC14ECCF3FEe769B22239184A873a1aa2065"
-# permissions-nodes-contract-version=2
+permissions-nodes-contract-enabled=true/false
+permissions-nodes-contract-address="0x3821eC14ECCF3FEe769B22239184A873a1aa2065"
+permissions-nodes-contract-version=2
