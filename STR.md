@@ -25,7 +25,7 @@ Modificador de método: somente participantes podem executar a função
 ### constructor
 
 ```solidity
-constructor(contract RealDigital token)
+constructor(RealDigital token)
 ```
 
 Constrói uma instância do contrato e armazena o endereço do Real Digital
