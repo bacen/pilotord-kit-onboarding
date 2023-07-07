@@ -4,25 +4,19 @@
 
 Contrato que permite ao participante habilitar outras carteiras de sua propriedade.
 
-
-
-
 ### constructor
 
 ```solidity
-constructor(address accessControlAddress) public
+constructor(address accessControlAddress)
 ```
 
 Constrói uma instância do contrato e armazena o endereço do contrato do RealDigital, responsável pelas verificações de controle de acesso.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name                 | Type    | Description                                |
+| -------------------- | ------- | ------------------------------------------ |
 | accessControlAddress | address | Endereço do contrato de controle de acesso |
-
-
-
 
 ### enableAccount
 
@@ -34,12 +28,9 @@ Habilita uma nova carteira para o participante. Qualquer carteira previamente ha
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name   | Type    | Description                   |
+| ------ | ------- | ----------------------------- |
 | member | address | Novo endereço do participante |
-
-
-
 
 ### disableAccount
 
@@ -48,4 +39,3 @@ function disableAccount() public
 ```
 
 Desabilita a própria carteira que executou a função.
-

@@ -2,7 +2,6 @@
 
 ## RealDigital
 
-
 ### frozenBalanceOf
 
 ```solidity
@@ -21,10 +20,10 @@ Evento emitido quando um valor de uma carteira é congelado.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name   | Type    | Description                         |
+| ------ | ------- | ----------------------------------- |
 | wallet | address | carteira que teve o fundo congelado |
-| amount | uint256 | quantidade congelada |
+| amount | uint256 | quantidade congelada                |
 
 ### checkFrozenBalance
 
@@ -37,7 +36,7 @@ _Modifier_ para verificar se um endereço possui fundos suficientes. Usado no `_
 ### constructor
 
 ```solidity
-constructor(string _name, string _symbol, address _authority, address _admin) public
+constructor(string _name, string _symbol, address _authority, address _admin)
 ```
 
 Construtor do token do Real Digital.
@@ -46,15 +45,12 @@ Invoca o construtor do ERC20 e dá permissão de autoridade para a carteira do B
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _name | string | Nome do token: Real Digital |
-| _symbol | string | Símbolo do token: BRL |
-| _authority | address | Carteira responsável por emitir, resgatar, mover e congelar fundos (BCB) |
-| _admin | address | Carteira responsável por administrar o controle de acessos (BCB) |
-
-
-
+| Name        | Type    | Description                                                              |
+| ----------- | ------- | ------------------------------------------------------------------------ |
+| \_name      | string  | Nome do token: Real Digital                                              |
+| \_symbol    | string  | Símbolo do token: BRL                                                    |
+| \_authority | address | Carteira responsável por emitir, resgatar, mover e congelar fundos (BCB) |
+| \_admin     | address | Carteira responsável por administrar o controle de acessos (BCB)         |
 
 ### pause
 
@@ -82,12 +78,12 @@ Função para emitir tokens para as carteiras permitidas.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| to | address | carteira destino |
+| Name   | Type    | Description          |
+| ------ | ------- | -------------------- |
+| to     | address | carteira destino     |
 | amount | uint256 | quantidade de tokens |
 
-### _beforeTokenTransfer
+### \_beforeTokenTransfer
 
 ```solidity
 function _beforeTokenTransfer(address from, address to, uint256 amount) internal
@@ -98,7 +94,7 @@ Gatilho executado sempre que é solicitada uma movimentação de token, inclusiv
 Condições de chamada:
 
 - quando `from` é zero, `amount` tokens serão emitidos `to`.
-- quando  `to` é zero, `amount` do `from` tokens serão destruídos.
+- quando `to` é zero, `amount` do `from` tokens serão destruídos.
 - `from` e `to` nunca serão simultaneamente zero.
 - `from` e `to` devem estar registrados como participantes.
 
@@ -120,10 +116,10 @@ Função para mover tokens de uma carteira para outra. Somente quem possuir MOVE
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| from | address | carteira origem |
-| to | address | carteira destino |
+| Name   | Type    | Description          |
+| ------ | ------- | -------------------- |
+| from   | address | carteira origem      |
+| to     | address | carteira destino     |
 | amount | uint256 | quantidade de tokens |
 
 ### increaseFrozenBalance
@@ -136,9 +132,9 @@ Função para incrementar tokens parcialmente bloqueados de uma carteira. Soment
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| from | address | carteira origem |
+| Name   | Type    | Description          |
+| ------ | ------- | -------------------- |
+| from   | address | carteira origem      |
 | amount | uint256 | quantidade de tokens |
 
 ### decreaseFrozenBalance
@@ -151,9 +147,9 @@ Função para decrementar tokens parcialmente bloqueados de uma carteira. Soment
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| from | address | carteira origem |
+| Name   | Type    | Description          |
+| ------ | ------- | -------------------- |
+| from   | address | carteira origem      |
 | amount | uint256 | quantidade de tokens |
 
 ### burn
@@ -176,9 +172,9 @@ Função para destruir tokens de uma carteira. Somente quem possuir MOVER_ROLE p
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| from | address | carteira origem |
+| Name   | Type    | Description          |
+| ------ | ------- | -------------------- |
+| from   | address | carteira origem      |
 | amount | uint256 | quantidade de tokens |
 
 ### burnFrom
@@ -187,11 +183,10 @@ Função para destruir tokens de uma carteira. Somente quem possuir MOVER_ROLE p
 function burnFrom(address account, uint256 amount) public
 ```
 
-Destrói `amount` tokens da  `account`, deduzindo alllowance do executor.
-Olhe {ERC20-_burn} e {ERC20-allowance}.
+Destrói `amount` tokens da `account`, deduzindo alllowance do executor.
+Olhe {ERC20-\_burn} e {ERC20-allowance}.
 
 Requerimentos:
 
-- o executor deve possuir autorização de mover fundos da  `accounts` de no mínimo o
-`amount`.
-
+- o executor deve possuir autorização de mover fundos da `accounts` de no mínimo o
+  `amount`.

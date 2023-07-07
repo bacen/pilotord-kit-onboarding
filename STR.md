@@ -25,15 +25,15 @@ Modificador de método: somente participantes podem executar a função
 ### constructor
 
 ```solidity
-constructor(contract RealDigital token) public
+constructor(contract RealDigital token)
 ```
 
 Constrói uma instância do contrato e armazena o endereço do Real Digital
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name  | Type                 | Description              |
+| ----- | -------------------- | ------------------------ |
 | token | contract RealDigital | Endereço do Real Digital |
 
 ### requestToMint
@@ -46,8 +46,8 @@ Emite a quantidade de Real Digital informada em _amount_ para a própria carteir
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name   | Type    | Description                                                  |
+| ------ | ------- | ------------------------------------------------------------ |
 | amount | uint256 | Quantidade a ser emitida (obs: lembrar das 2 casas decimais) |
 
 ### requestToBurn
@@ -60,7 +60,6 @@ Destrói a quantidade de Real Digital informada em _amount_ da própria carteira
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name   | Type    | Description                                                    |
+| ------ | ------- | -------------------------------------------------------------- |
 | amount | uint256 | Quantidade a ser destruída (obs: lembrar das 2 casas decimais) |
-

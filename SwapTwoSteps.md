@@ -60,14 +60,14 @@ Evento de início do _swap_.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| proposalId | uint256 | Id da proposta |
-| senderNumber | uint256 | CNPJ8 do pagador |
-| receiverNumber | uint256 | CNPJ8 do recebedor |
-| sender | address | Endereço do pagador |
-| receiver | address | Endereço do recebedor |
-| amount | uint256 | Valor |
+| Name           | Type    | Description           |
+| -------------- | ------- | --------------------- |
+| proposalId     | uint256 | Id da proposta        |
+| senderNumber   | uint256 | CNPJ8 do pagador      |
+| receiverNumber | uint256 | CNPJ8 do recebedor    |
+| sender         | address | Endereço do pagador   |
+| receiver       | address | Endereço do recebedor |
+| amount         | uint256 | Valor                 |
 
 ### SwapExecuted
 
@@ -79,14 +79,14 @@ Evento de _swap_ executado.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| proposalId | uint256 | Id da proposta |
-| senderNumber | uint256 | CNPJ8 do pagador |
-| receiverNumber | uint256 | CNPJ8 do recebedor |
-| sender | address | Endereço do pagador |
-| receiver | address | Endereço do recebedor |
-| amount | uint256 | Valor |
+| Name           | Type    | Description           |
+| -------------- | ------- | --------------------- |
+| proposalId     | uint256 | Id da proposta        |
+| senderNumber   | uint256 | CNPJ8 do pagador      |
+| receiverNumber | uint256 | CNPJ8 do recebedor    |
+| sender         | address | Endereço do pagador   |
+| receiver       | address | Endereço do recebedor |
+| amount         | uint256 | Valor                 |
 
 ### SwapCancelled
 
@@ -98,10 +98,10 @@ Evento de _swap_ cancelado.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| proposalId | uint256 | Id da proposta |
-| reason | string | Razão do cancelamento |
+| Name       | Type    | Description           |
+| ---------- | ------- | --------------------- |
+| proposalId | uint256 | Id da proposta        |
+| reason     | string  | Razão do cancelamento |
 
 ### ExpiredProposal
 
@@ -113,23 +113,23 @@ Evento de proposta expirada. A proposta expira em 1 minuto.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name       | Type    | Description    |
+| ---------- | ------- | -------------- |
 | proposalId | uint256 | Id da proposta |
 
 ### constructor
 
 ```solidity
-constructor(contract RealDigital _CBDC) public
+constructor(contract RealDigital _CBDC)
 ```
 
 Construtor
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _CBDC | contract RealDigital | Endereço do contrato do Real Digital |
+| Name   | Type                 | Description                          |
+| ------ | -------------------- | ------------------------------------ |
+| \_CBDC | contract RealDigital | Endereço do contrato do Real Digital |
 
 ### startSwap
 
@@ -141,12 +141,12 @@ Cria a proposta de _swap_.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| tokenSender | contract RealTokenizado | Endereço do contrato de Real Tokenizado do pagador |
+| Name          | Type                    | Description                                          |
+| ------------- | ----------------------- | ---------------------------------------------------- |
+| tokenSender   | contract RealTokenizado | Endereço do contrato de Real Tokenizado do pagador   |
 | tokenReceiver | contract RealTokenizado | Endereço do contrato de Real Tokenizado do recebedor |
-| receiver | address | Endereço do cliente recebedor |
-| amount | uint256 | Valor |
+| receiver      | address                 | Endereço do cliente recebedor                        |
+| amount        | uint256                 | Valor                                                |
 
 ### executeSwap
 
@@ -158,8 +158,8 @@ Aceita a proposta de _swap_, executável apenas pelo recebedor.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name       | Type    | Description    |
+| ---------- | ------- | -------------- |
 | proposalId | uint256 | Id da proposta |
 
 ### cancelSwap
@@ -172,8 +172,7 @@ Cancela a proposta. Pode ser executada tanto pelo pagador quanto pelo recebedor.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| proposalId | uint256 | Id da proposta |
-| reason | string | Razão do cancelamento |
-
+| Name       | Type    | Description           |
+| ---------- | ------- | --------------------- |
+| proposalId | uint256 | Id da proposta        |
+| reason     | string  | Razão do cancelamento |

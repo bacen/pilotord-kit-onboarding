@@ -5,6 +5,7 @@
 _Smart Contract_ responsável pela camada de controle de acesso para o Real Digital/Tokenizado.
 
 Suas principais funcionalidades são:
+
 - Determinar quais carteiras podem enviar/receber tokens.
 - Controlar os papeis de qual endereço pode emitir/resgatar/congelar saldo de uma carteira.
 
@@ -74,8 +75,8 @@ Evento de carteira habilitada.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name   | Type    | Description         |
+| ------ | ------- | ------------------- |
 | member | address | Carteira habilitada |
 
 ### DisabledAccount
@@ -88,24 +89,24 @@ Evento de carteira desabilitada.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name   | Type    | Description           |
+| ------ | ------- | --------------------- |
 | member | address | Carteira desabilitada |
 
 ### constructor
 
 ```solidity
-constructor(address _authority, address _admin) internal
+constructor(address _authority, address _admin)
 ```
 
 Constrói uma instância da contrato, armazenando os argumentos informados.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _authority | address | Autoridade do contrato, pode fazer todas as operações com o token |
-| _admin | address | Administrador do contrato, pode trocar a autoridade do contrato caso seja necessário |
+| Name        | Type    | Description                                                                          |
+| ----------- | ------- | ------------------------------------------------------------------------------------ |
+| \_authority | address | Autoridade do contrato, pode fazer todas as operações com o token                    |
+| \_admin     | address | Administrador do contrato, pode trocar a autoridade do contrato caso seja necessário |
 
 ### checkAccess
 
@@ -117,10 +118,10 @@ Modificador que checa se tanto o pagador quanto o recebedor estão habilitados a
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| from | address | Carteira do pagador |
-| to | address | Carteira do recebedor |
+| Name | Type    | Description           |
+| ---- | ------- | --------------------- |
+| from | address | Carteira do pagador   |
+| to   | address | Carteira do recebedor |
 
 ### enableAccount
 
@@ -132,8 +133,8 @@ Habilita a carteira a receber o token.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name   | Type    | Description               |
+| ------ | ------- | ------------------------- |
 | member | address | Carteira a ser habilitada |
 
 ### disableAccount
@@ -146,8 +147,8 @@ Desabilita a carteira.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name   | Type    | Description                 |
+| ------ | ------- | --------------------------- |
 | member | address | Carteira a ser desabilitada |
 
 ### verifyAccount
@@ -160,7 +161,6 @@ Checa se a carteira pode receber o token.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name    | Type    | Description            |
+| ------- | ------- | ---------------------- |
 | account | address | Carteira a ser checada |
-

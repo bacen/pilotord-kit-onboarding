@@ -39,7 +39,7 @@ Modificador de método: somente participantes podem alterar suas carteiras _defa
 ### constructor
 
 ```solidity
-constructor(RealDigital token, address _authority, address _admin) public
+constructor(RealDigital token, address _authority, address _admin)
 ```
 
 #### Parameters
