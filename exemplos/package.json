@@ -4,8 +4,10 @@
   "description": "Exemplo de chamada dos contratos",
   "main": "index.js",
   "scripts": {
-    "example": "npx hardhat run --network besu ./example.ts"
-  },
+    "exemplo:habilitarConta": "npx hardhat run --network besu ./_Conta/habilitarConta.ts",
+    "exemplo:transferirCbdc": "npx hardhat run --network besu ./_Transferencia/transferirCbdc.ts",
+    "exemplo:emitirDvtOuMet": "npx hardhat run --network besu ./_Emissao/emitirDvtOuMet.ts"
+},
   "author": "",
   "license": "MIT",
   "devDependencies": {

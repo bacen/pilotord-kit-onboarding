@@ -1,5 +1,5 @@
 import { ethers } from "hardhat";
-import abiRealTokenizado from '../abi/RealTokenizado.json';
+import abiRealTokenizado from '../../abi/RealTokenizado.json';
 
 function delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );

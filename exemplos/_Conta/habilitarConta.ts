@@ -1,6 +1,6 @@
 import { ethers } from "hardhat";
-import abiSTR from "../abi/STR.json";
-import abiRealDigitalEnableAccount from "../abi/RealDigitalEnableAccount.json";
+import abiSTR from "../../abi/STR.json";
+import abiRealDigitalEnableAccount from "../../abi/RealDigitalEnableAccount.json";
 
 function delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );

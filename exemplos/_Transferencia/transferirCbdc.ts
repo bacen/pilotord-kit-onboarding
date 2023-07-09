@@ -1,6 +1,6 @@
 import { ethers } from "hardhat";
-import abiRealDigital from '../abi/RealDigital.json';
-import abiRealDigitalDefaultAccount from '../abi/RealDigitalDefaultAccount.json';
+import abiRealDigital from '../../abi/RealDigital.json';
+import abiRealDigitalDefaultAccount from '../../abi/RealDigitalDefaultAccount.json';
 
 // Busca a conta padrão do participante e realiza transferêcia de CBDC
 async function example2() {
