@@ -9,4 +9,5 @@ Os pontos onde anoto com `[Sugestão de implementação]`, são sugestões minha
 ## Dúvidas
 
 - Qual a relacão e uso correto de `CBDCAccessControl`. Me pareceu um ancestral comum a todos os contratos que implementam `AccessControl`. Usei como um contrato abstrato, pai de `RealDigital`, mas não tenho certeza.
+- `RealTokenizado` me parece que pode ser `abstract`, com uma implementação diferente para cada IF.
 
