@@ -31,7 +31,7 @@ Carteira de reserva da instituição participante.
 ### constructor
 
 ```solidity
-constructor(string _name, string _symbol, address _authority, address _admin, string _participant, uint256 _cnpj8, address _reserve) public
+constructor(string _name, string _symbol, address _authority, address _admin, string _participant, uint32 _cnpj8, address _reserve) public
 ```
 
 Construtor do token do Real Tokenizado.
@@ -47,7 +47,7 @@ Invoca o construtor do ERC20 e dá permissão de autoridade para a carteira do B
 | _authority | address | Carteira responsável por emitir, resgatar, mover e congelar fundos (BCB) |
 | _admin | address | Carteira responsável por administrar o controle de acessos (BCB) |
 | _participant | string | Identificação do participante como string. |
-| _cnpj8 | uint256 | Primeiros 8 digitos do CNPJ da instituição |
+| _cnpj8 | uint32 | Primeiros 8 digitos do CNPJ da instituição |
 | _reserve | address | Carteira de reserva da instituição |
 
 
