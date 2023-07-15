@@ -92,9 +92,43 @@ Os quatro endereços (enodes) abaixo devem ser configurados no parâmetro (BESU_
 Exemplo: 
     BESU_ENODE_BOOTNODES="enode://bootnode1@host:port,enode://bootnode2@host:port,enode://bootnode3@host:port,enode://bootnode4@host:port"
 
+## Permissionamento do nó do participante na rede do piloto
+
+O permissionamento na rede será efetuado, por meio de contrato, exclusivamente pelo Banco Central do Brasil, administrador da rede.
+
+Para solicitar a permissão, siga os passos abaixo:
+
+* O enode a ser informado é composto pelo enodeID + host (IP RSFN) + port.
+    - "enode://enodeID@host:port"
+
+* Para obter o enodeID sem precisar subir o nó do participante, execute o comando abaixo que extrai o enode, porém a informação vem sem os dados de IP e porta, que devem ser complementados pelo participante.
+
+    - **comando:** _besu --data-path=Node-01/data/ public-key export-address_
+
+    - A saída de comando virá assim:
+    ```
+    2023-07-04 18:02:04.180-03:00 | main | INFO  | KeyPairUtil | Loaded public key 0x46163abddb5beb0599e73e468c0a2927f53408f871beb8e41c09b38b7fed933d149de697e3f20c963135e75b6293b094ceea08600e59524751de0bdff8b3e0e4 from /nfs-server/hyperledger-des/springboot/besu/hyperledger-01/data/key 0x4ee291a08e09bde67cfcb279db9fe957b707b4a6
+    ```
+
+    - no caso acima, o enode seria: enode://0x46163abddb5beb0599e73e468c0a2927f53408f871beb8e41c09b38b7fed933d149de697e3f20c963135e75b6293b094ceea08600e59524751de0bdff8b3e0e4@IP_RSFN:PORT
+
+* Fornecer por email ao Banco Central do Brasil o _enode_ do nó do participante (obtido no passo anterior):
+    - e-mail: piloto.rd.tecnologia@bcb.gov.br 
+    - assunto: DEINF | Permissão de Nó na Rede | Participante: [nome do participante]
+
+* Configurar os seguintes parâmetros no arquivo config.toml do nó do participante. O arquivo de exemplo já possui esses parâmetros.
+
+    * Arquivo config.toml:
+    ```        
+    permissions-nodes-contract-enabled=true
+    permissions-nodes-contract-address="0x3821eC14ECCF3FEe769B22239184A873a1aa2065"
+    permissions-nodes-contract-version=2
+    ```
+
 ## Execução do nó do participante
 
-Após realizar os passos acima, deve ser efetuada a implantação do nó em seu ambiente.
+Após realizar os passos acima, e receber a confirmação do Banco Central do Brasil sobre a autorização do nó, execute o nó do participante e verifique as seguintes informações:
+
 Para conferir se o nó subiu corretamente, verifique as seguintes informações:
 
 * Caso esteja executando o nó em container, verifique se ele está com status healthy.
@@ -108,75 +142,6 @@ Importante realizar este teste na porta de _discovery_ tanto para o protocolo TC
     | main | INFO | FullSyncTargetManager | Unable to find sync target. Currently checking 0 peers for usefulness*
     ```
 
-* Uma vez iniciado, execute a API `ADMIN\admin_nodeInfo` para obter o endereço (atributo **enode** da resposta) do seu nó, 
-pois você usará esse dado no passo de permissionamento do nó na rede do piloto. Certifique-se de que o endereço fornecido na resposta à consulta seja o IP público da RSFN que será utilizado pelo participante ao longo do piloto.
-
-O retorno da API será algo parecido com o abaixo:
-
-```json
-    {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "result": {
-            "enode": "enode://xxxx@host:port",
-            "listenAddr": "200.218.66.38:30002",
-            "ip": "200.218.66.38",
-            "name": "besu/bootnode-bcb-1/v23.1.2/linux-x86_64/openjdk-java-17",
-            "id": "xxxx",
-            "ports": {
-                "discovery": 30002,
-                "listener": 30002
-            },
-            "protocols": {
-                "eth": {
-                    "config": {
-                        "chainId": 381660001,
-                        "muirGlacierBlock": 0,
-                        "qbft": {
-                            "epochLength": 30000,
-                            "blockPeriodSeconds": 5,
-                            "requestTimeoutSeconds": 10
-                        }
-                    },
-                    "difficulty": 119929,
-                    "genesis": "xxxx",
-                    "head": "xxxx",
-                    "network": 381660001
-                }
-            }
-        }
-    }
-```
-
-## Permissionamento do nó do participante na rede do piloto
-
-O permissionamento na rede será efetuado, por meio de contrato, exclusivamente pelo Banco Central do Brasil, administrador da rede.
-
-Para solicitar a permissão, siga os passos abaixo:
-
-* Fornecer por email ao Banco Central do Brasil o _enode_ do nó do participante (obtido no passo anterior):
-    - e-mail: piloto.rd.tecnologia@bcb.gov.br 
-    - assunto: DEINF | Permissão de Nó na Rede | Participante: [nome do participante]
-
-* Configurar os seguintes parâmetros no arquivo config.toml do nó do participante. O arquivo de exemplo já possui esses parâmetros, basta descomentá-los.
-
-    * Arquivo config.toml:
-    ```        
-    permissions-nodes-contract-enabled=true
-    permissions-nodes-contract-address="0x3821eC14ECCF3FEe769B22239184A873a1aa2065"
-    permissions-nodes-contract-version=2
-    ```
-
-Após receber a confirmação do Banco Central do Brasil sobre a autorização do nó e, após realizar as configurações acima, execute o nó do participante novamente e verifique as seguintes informações:
-
-* Verifique se o container do nó está com status healthy.
-
-* Verifique no log do nó se ele foi iniciado corretamente:
-    ```
-    | main | INFO | FullSyncDownloader | Starting full sync.
-    | main | INFO | FullSyncTargetManager | Unable to find sync target. Currently checking 0 peers for usefulness
-    ```
-
 * Execute a API `NET\net_peerCount` para verificar em quantos peers o nó do participante se conectou. A quantidade de nós conectados ao seu nó vai depender da quantidade de nós que estão conectados na rede no momento. É esperado que o nó do participante conecte-se a mais de 1 nó na rede. O retorno da API será algo parecido:
 
 ```json
@@ -186,7 +151,6 @@ Após receber a confirmação do Banco Central do Brasil sobre a autorização d
         "result": "0x7"
     }
 ```
-    
     
 * Execute a API `ADMIN\admin_peers` para verificar quais nós se conectaram. Quando se utiliza bootnodes na rede, o discovery deverá ocorrer de forma automática, portanto, nessa lista, você deverá encontrar os nós conectados ao nó do participante.  O retorno da API será algo parecido com o abaixo:
 
