@@ -121,7 +121,7 @@ Para solicitar a permissão, siga os passos abaixo:
     * Arquivo config.toml:
     ```        
     permissions-nodes-contract-enabled=true
-    permissions-nodes-contract-address="0x3821eC14ECCF3FEe769B22239184A873a1aa2065"
+    permissions-nodes-contract-address="0x0000000000000000000000000000000000009999"
     permissions-nodes-contract-version=2
     ```
 
