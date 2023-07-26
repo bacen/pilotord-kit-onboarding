@@ -40,7 +40,7 @@ contract RealDigital is ERC20, CBDCAccessControl, Pausable {
     // e permite que a transferência seja pausada.
     function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual override {
         super._beforeTokenTransfer(from, to, amount);
-        if (from != address(0)) { // Not a minting operation
+        if (from != address(0) && to != address(0)) { // Not a minting or burning operation
             require(!paused(), "Token transfer while paused");
             require(hasRole(ACCESS_ROLE, from), "Caller is not a participant");
             require(hasRole(ACCESS_ROLE, to), "Receiver is not a participant");
