@@ -13,8 +13,6 @@ contract RealTokenizado is RealDigital {
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
     bytes32 public constant RESERVE_ROLE = keccak256("RESERVE_ROLE");
     
-    mapping(address => uint256) private _frozenBalances;
-
     string public participant;
     uint256 public cnpj8;
     address public reserve;
