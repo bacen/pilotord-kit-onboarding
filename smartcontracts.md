@@ -27,7 +27,12 @@ A carteira default será usada principalmente nos contratos de _swap_, detalhado
 
 ### DVt e MEt - [Real Tokenizado](./RealTokenizado.md)
 
-O Real Tokenizado está definido no contrato chamado [RealTokenizado](./abi/RealTokenizado.json). 
+O Real Tokenizado está definido no contrato chamado [RealTokenizado](./abi/RealTokenizado.json).
+
+***DVt:*** Tokens de depósitos bancários à vista.
+
+***MEt:*** Moeda Eletrônica Tokenizada
+
 * A carteira default do participante será a gestora do token, porém a criação do token na rede será feita pelo Banco Central do Brasil. 
 * O símbolo do token a definir.
 * Assim como o Real Digital, somente carteiras autorizadas podem receber Real Tokenizado. 
