@@ -31,7 +31,7 @@ O Real Tokenizado está definido no contrato chamado [RealTokenizado](./abi/Real
 
 ***DVt:*** Tokens de depósitos bancários à vista.
 
-***MEt:*** Moeda Eletrônica Tokenizada
+***MEt:*** Moeda Eletrônica Tokenizada.
 
 * A carteira default do participante será a gestora do token, porém a criação do token na rede será feita pelo Banco Central do Brasil. 
 * O símbolo do token a definir.
