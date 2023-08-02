@@ -1,5 +1,7 @@
 import { ethers } from "hardhat";
 import abiRealTokenizado from '../abi/RealTokenizado.json';
+import { Transaction } from "ethers";
+import { TransactionReceipt, TransactionResponse } from "@ethersproject/providers";
 
 function delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
@@ -11,9 +13,15 @@ async function example3() {
     const [, participantX, customerX ] = await ethers.getSigners();
 
     // participante do piloto habilitando endereço para cliente
-    await dvtParticipantX.connect(participantX).enableAccount(customerX.address);
+    const enableTx: TransactionResponse = await dvtParticipantX.connect(participantX).enableAccount(customerX.address);
 
-    await delay(5000);
+    // Sempre que um novo endereço for habilitado, deve-se esperar que a transação de habilitação seja confirmada, atualizando o estado do contrato
+    const enableReceipt: TransactionReceipt = await enableTx.wait();
+
+    if (enableReceipt.status === 0) {
+        // Caso o status da transação seja 0, a transação falhou por algum motivo. 
+        throw new Error("Enable Account Transaction Failed");
+    }
 
     // Participante do piloto emitindo dvt para cliente 
     const response = await dvtParticipantX.connect(participantX).mint(customerX.address, ethers.utils.parseUnits("100", 2));
