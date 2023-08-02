@@ -1,11 +1,6 @@
 import { ethers } from "hardhat";
 import abiRealTokenizado from '../abi/RealTokenizado.json';
-import { Transaction } from "ethers";
 import { TransactionReceipt, TransactionResponse } from "@ethersproject/providers";
-
-function delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-};
 
 // Participante ativa um endereço para um cliente e realizando uma emissão de DVt ou MEt
 async function example3() {

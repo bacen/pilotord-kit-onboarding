@@ -3,10 +3,6 @@ import abiSTR from "../abi/STR.json";
 import abiRealDigitalEnableAccount from "../abi/RealDigitalEnableAccount.json";
 import { TransactionReceipt, TransactionResponse } from "@ethersproject/providers";
 
-function delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-};
-
 // Habilita uma conta, emite valores e destrói valores.
 async function example1() {
     const STR = await ethers.getContractAt(abiSTR, '<Endereço do contrato SRT>');
