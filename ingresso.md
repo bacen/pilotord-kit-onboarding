@@ -73,7 +73,7 @@ Está disponível neste kit-onboarding um template do arquivo [config.toml](conf
 
 O _discovery_ será efetuado de forma automática usando bootnodes. Através deles serão disponibilizados os endereços (enodes) dos participantes da rede para que o nó faça automaticamente a conexão com cada _peer_. Foram disponibilizados 4 bootnodes na rede para atender os requisitos mínimos de resiliência e disponibilidade.
 
-Os quatro endereços (enodes) abaixo devem ser configurados no parâmetro (BESU_ENODE_BOOTNODES), separados por vírgula, no arquivo de variáveis de ambiente do container BESU.
+Os quatro endereços (enodes) abaixo devem ser configurados no parâmetro (BESU_BOOTNODES), separados por vírgula, no arquivo de variáveis de ambiente do container BESU.
 
     * Os enodes dos Bootnodes:
         **validator-bcb-1**
@@ -90,7 +90,7 @@ Os quatro endereços (enodes) abaixo devem ser configurados no parâmetro (BESU_
         
 
 Exemplo: 
-    BESU_ENODE_BOOTNODES="enode://bootnode1@host:port,enode://bootnode2@host:port,enode://bootnode3@host:port,enode://bootnode4@host:port"
+    BESU_BOOTNODES="enode://bootnode1@host:port,enode://bootnode2@host:port,enode://bootnode3@host:port,enode://bootnode4@host:port"
 
 ## Permissionamento do nó do participante na rede do piloto
 
@@ -110,7 +110,7 @@ Para solicitar a permissão, siga os passos abaixo:
     2023-07-04 18:02:04.180-03:00 | main | INFO  | KeyPairUtil | Loaded public key 0x46163abddb5beb0599e73e468c0a2927f53408f871beb8e41c09b38b7fed933d149de697e3f20c963135e75b6293b094ceea08600e59524751de0bdff8b3e0e4 from /nfs-server/hyperledger-des/springboot/besu/hyperledger-01/data/key 0x4ee291a08e09bde67cfcb279db9fe957b707b4a6
     ```
 
-    - no caso acima, o enode seria: enode://0x46163abddb5beb0599e73e468c0a2927f53408f871beb8e41c09b38b7fed933d149de697e3f20c963135e75b6293b094ceea08600e59524751de0bdff8b3e0e4@IP_RSFN:PORT
+    - no caso acima, o enode seria: enode://46163abddb5beb0599e73e468c0a2927f53408f871beb8e41c09b38b7fed933d149de697e3f20c963135e75b6293b094ceea08600e59524751de0bdff8b3e0e4@IP_RSFN:PORT
 
 * Fornecer por email ao Banco Central do Brasil o _enode_ do nó do participante (obtido no passo anterior):
     - e-mail: piloto.rd.tecnologia@bcb.gov.br 
