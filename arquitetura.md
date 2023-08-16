@@ -14,7 +14,7 @@ Por se tratar de um piloto em ambiente de testes, a arquitetura apresentada est�
 Para uso de versões superiores, a compatibilidade deve ser verificada com a equipe de desenvolvimento do piloto. Ao longo do projeto poderão ser testadas atualizações de versões.
 
 **Consenso** utilizado na rede do piloto do Real Digital:
-    [QBFT](https://besu.hyperledger.org/stable/private-networks/how-to/configure/consensus/qbft/)
+    [QBFT](https://besu.hyperledger.org/private-networks/how-to/configure/consensus/qbft)
 
 **Permissionamento** do nó do participante na rede:
     A permissão é realizada [onchain](https://besu.hyperledger.org/stable/private-networks/concepts/permissioning/onchain/#permissioning-contracts) pelo Banco Central do Brasil. Mais detalhes no passo de [conexão com a rede](ingresso.md).
