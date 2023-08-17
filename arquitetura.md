@@ -17,9 +17,9 @@ Para uso de versões superiores, a compatibilidade deve ser verificada com a equ
     [QBFT](https://besu.hyperledger.org/private-networks/how-to/configure/consensus/qbft)
 
 **Permissionamento** do nó do participante na rede:
-    A permissão é realizada [onchain](https://besu.hyperledger.org/stable/private-networks/concepts/permissioning/onchain/#permissioning-contracts) pelo Banco Central do Brasil. Mais detalhes no passo de [conexão com a rede](ingresso.md).
+    A permissão é realizada [onchain](https://besu.hyperledger.org/private-networks/concepts/permissioning/onchain/#permissioning-contracts) pelo Banco Central do Brasil. Mais detalhes no passo de [conexão com a rede](ingresso.md).
 
-Será utilizada a [versão 2](https://besu.hyperledger.org/stable/private-networks/how-to/use-permissioning/onchain/#specify-the-permissioning-contract-interface-version) do contract interface para o permissionamento **(permissions-nodes-contract-version)**.
+Será utilizada a [versão 2](https://besu.hyperledger.org/private-networks/how-to/use-permissioning/onchain/#specify-the-permissioning-contract-interface-version) do contract interface para o permissionamento **(permissions-nodes-contract-version)**.
 
 ## Topologia
 
