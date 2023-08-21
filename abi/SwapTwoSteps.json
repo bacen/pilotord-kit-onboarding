@@ -160,6 +160,12 @@
         {
           "indexed": false,
           "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
           "name": "senderNumber",
           "type": "uint256"
         },
