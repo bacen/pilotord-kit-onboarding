@@ -5,6 +5,16 @@
         "internalType": "contract RealDigital",
         "name": "token",
         "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_authority",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_admin",
+          "type": "address"
       }
     ],
     "stateMutability": "nonpayable",

@@ -10,7 +10,7 @@ Esse código foi testado mas não foi feita nenhuma auditoria ou análise de vul
     Enable Account / Mint and Burn.
 
 [Exemplo 2](example2.ts):
-    Buscar default account participant e realizar transaferencia de CBDC.
+    Buscar default account participant e realizar transferência de CBDC.
 
 [Exemplo 3](example3.ts):
     Participante ativando um endereço para um cliente e realizando uma emissão de DVt ou MEt.
