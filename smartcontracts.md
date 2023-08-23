@@ -25,7 +25,7 @@ O CBDC (Central Bank Digital Currency) está definido no contrato chamado [RealD
 
 A carteira default será usada principalmente nos contratos de _swap_, detalhados abaixo.
 
-### DVt e MEt - [Real Tokenizado](./RealTokenizado.md)
+### DVt (Depósito bancário à vista tokenizado) e MEt (Moeda eletrônica tokenizada) - [Real Tokenizado](./RealTokenizado.md)
 
 O Real Tokenizado está definido no contrato chamado [RealTokenizado](./abi/RealTokenizado.json). 
 * A carteira default do participante será a gestora do token, porém a criação do token na rede será feita pelo Banco Central do Brasil. 
