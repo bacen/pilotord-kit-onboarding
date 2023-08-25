@@ -30,7 +30,7 @@ p2p-enabled=true
 discovery-enabled=true
 #p2p-host="0.0.0.0"
 p2p-port=30303
-max-peers=25
+max-peers=26
 
 host-allowlist=["*"]
 
