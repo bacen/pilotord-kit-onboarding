@@ -4,7 +4,7 @@
 
 Contrato que representa a consulta de carteiras de clientes. É um contrato de simulação de um diretório de informações.
 
-Este contrato será usado somente durante o piloto. 
+Este contrato será usado somente durante o piloto. Os métodos desse contrato podem ser chamados por qualquer endereço habilitado a receber CBDC.
 
 ### CBDC
 

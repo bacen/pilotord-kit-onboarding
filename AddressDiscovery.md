@@ -2,7 +2,7 @@
 
 ## AddressDiscovery
 
-_Smart Contract_ utilitário para facilitar a descoberta dos demais endereços de contratos na rede do Piloto RD.
+_Smart Contract_ utilitário para facilitar a descoberta dos demais endereços de contratos na rede do Piloto RD. Pode ser acessado a partir do endereço 0xE42c25480b04CE6ff82734C587633e777EbD9eBA.
 
 ### ACCESS_ROLE
 
@@ -41,7 +41,7 @@ Construtor
 function updateAddress(bytes32 smartContract, address newAddress) public
 ```
 
-Atualiza o endereço de um contrato, permitido apenas para a autoridade.
+Atualiza o endereço de um contrato, permitido apenas para a autoridade (BCB).
 
 #### Parameters
 
