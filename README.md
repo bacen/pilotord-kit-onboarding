@@ -1,4 +1,4 @@
-# Kit Onboarding - Piloto Real Digital (#51f40ec5dd5e00c9feea02ba5cf960ceaaad395b)
+# Kit Onboarding - Piloto Real Digital (#7ad8d3c3a98bf3885ea4415f903ce599acf12045)
 
 Este repositório contém as informações necessárias para a participação no piloto do Real Digital. A documentação será complementada conforme o _feedback_ dos participantes.
 

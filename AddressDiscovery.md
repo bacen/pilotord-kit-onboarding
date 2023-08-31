@@ -2,7 +2,7 @@
 
 ## AddressDiscovery
 
-_Smart Contract_ utilitário para facilitar a descoberta dos demais endereços de contratos na rede do Piloto RD. Pode ser acessado a partir do endereço 0xE42c25480b04CE6ff82734C587633e777EbD9eBA.
+_Smart Contract_ utilitário para facilitar a descoberta dos demais endereços de contratos na rede do Piloto RD. Pode ser acessado a partir do endereço 0xDc2633B0cdA829bd2A54Db3Fd39b474aa0953c70.
 
 ### ACCESS_ROLE
 
