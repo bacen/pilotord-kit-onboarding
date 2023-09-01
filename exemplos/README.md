@@ -15,5 +15,13 @@ Esse código foi testado mas não foi feita nenhuma auditoria ou análise de vul
 [Exemplo 3](example3.ts):
     Participante ativando um endereço para um cliente e realizando uma emissão de DVt ou MEt.
 
+[Exemplo 4](example4.ts):
+Participante buscando o endereço de Real Digital no contrato de AddressDiscovery.
+
+[Exemplo 5](example5.ts):
+Operação 1002: Registro de liquidação de oferta pública. 
+
+[Exemplo 6](example6.ts):
+Operação 1052: Registro de operação de compra e venda entre participantes.
 
 [<<< Voltar](../README.md)
