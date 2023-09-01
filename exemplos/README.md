@@ -14,6 +14,9 @@ Esse código foi testado mas não foi feita nenhuma auditoria ou análise de vul
 
 [Exemplo 3](example3.ts):
     Participante ativando um endereço para um cliente e realizando uma emissão de DVt ou MEt.
+    
+[Exemplo 4](example4.ts):
+    Buscar o endereço do contrato do RealDigital utilizando o contrato AddressDiscovery.
 
 
 [<<< Voltar](../README.md)
