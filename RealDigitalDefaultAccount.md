@@ -63,7 +63,7 @@ constructor(contract RealDigital token, address _authority, address _admin) publ
 function addDefaultAccount(uint256 cnpj8, address wallet) public
 ```
 
-Adiciona a primeira carteira _default_ para um participante. É permitido apenas para a autoridade.
+Adiciona a primeira carteira _default_ para um participante. É permitido apenas para a autoridade. (BCB)
 
 #### Parameters
 
@@ -81,7 +81,7 @@ Adiciona a primeira carteira _default_ para um participante. É permitido apenas
 function updateDefaultWallet(uint256 cnpj8, address newWallet) public
 ```
 
-Permite ao participante trocar sua carteira _default_. 
+Permite ao participante trocar sua carteira _default_. Deve ser chamado a partir do endereço default.
 
 #### Parameters
 

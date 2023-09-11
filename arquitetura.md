@@ -2,24 +2,24 @@
 
 ## Objetivo
 
-Esta documentação tem como objetivo apresentar a arquitetura definida para o piloto do Real Digital. 
+Esta documentação tem como objetivo apresentar a arquitetura definida para o piloto do Real Digital.
 
 Por se tratar de um piloto em ambiente de testes, a arquitetura apresentada está sujeita a constantes evoluções que serão refletidas na documentação apresentada.
 
 ## Hyperledger Besu para redes privadas
 
 **Versão do Hyperledger Besu** utilizada na rede do piloto do Real Digital:
-    [23.4.1](https://github.com/hyperledger/besu/releases/tag/23.4.1). 
+    [23.4.1](https://github.com/hyperledger/besu/releases/tag/23.4.1).
 
 Para uso de versões superiores, a compatibilidade deve ser verificada com a equipe de desenvolvimento do piloto. Ao longo do projeto poderão ser testadas atualizações de versões.
 
 **Consenso** utilizado na rede do piloto do Real Digital:
-    [QBFT](https://besu.hyperledger.org/stable/private-networks/how-to/configure/consensus/qbft/)
+    [QBFT](https://besu.hyperledger.org/private-networks/how-to/configure/consensus/qbft/)
 
 **Permissionamento** do nó do participante na rede:
-    A permissão é realizada [onchain](https://besu.hyperledger.org/stable/private-networks/concepts/permissioning/onchain/#permissioning-contracts) pelo Banco Central do Brasil. Mais detalhes no passo de [conexão com a rede](ingresso.md).
+    A permissão é realizada [onchain](https://besu.hyperledger.org/private-networks/concepts/permissioning/onchain/#permissioning-contracts) pelo Banco Central do Brasil. Mais detalhes no passo de [conexão com a rede](ingresso.md).
 
-Será utilizada a [versão 2](https://besu.hyperledger.org/stable/private-networks/how-to/use-permissioning/onchain/#specify-the-permissioning-contract-interface-version) do contract interface para o permissionamento **(permissions-nodes-contract-version)**.
+Será utilizada a [versão 2](https://besu.hyperledger.org/private-networks/how-to/use-permissioning/onchain/#specify-the-permissioning-contract-interface-version) do contract interface para o permissionamento **(permissions-nodes-contract-version)**.
 
 ## Topologia
 
@@ -31,7 +31,7 @@ A imagem abaixo mostra a arquitetura inicial proposta para a rede do piloto do R
 
 &nbsp;
 
-- A comunicação entre os nós da rede se dá por meio da RSFN. 
+- A comunicação entre os nós da rede se dá por meio da RSFN.
 
 - Cada participante do piloto, à exceção do Banco Central do Brasil, possui um único nó na rede.
 

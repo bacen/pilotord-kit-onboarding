@@ -12,8 +12,14 @@ No piloto, todos os contratos serão implementados e publicados na rede pelo Ban
 
 ## Smart Contracts
 
-Os contratos que representam tokens (Real Digital, Real Tokenizado, Título Público Federal) foram desenvolvidos usando como base o padrão [ERC20](https://ethereum.org/pt/developers/docs/standards/tokens/erc-20/), com a adição de [funções específicas de controle de acesso](./CBDCAccessControl.md). 
+Os contratos que representam tokens (Real Digital e Real Tokenizado) foram desenvolvidos usando como base o padrão [ERC20](https://ethereum.org/pt/developers/docs/standards/tokens/erc-20/), com a adição de [funções específicas de controle de acesso](./CBDCAccessControl.md). 
 Todos os tokens suportam 2 casas decimais.
+
+Os contratos das operações (liquidação de oferta pública e compra e venda) que envolvem TPFt foram desenvolvidos usando como base o padrão [ERC1155](https://ethereum.org/pt/developers/docs/standards/tokens/erc-1155/), com a adição de [funções específicas de controle de acesso](./TPFtAccessControl.md). 
+
+Uma operação será identificada unicamente pelo operationId informado pelo participante. Este número será único na rede e sugere-se que seja utilizado o número da faixa do participante concatenado com a data vigente. Este formato não será validado e o operationId será utilizado para realizar a correspondência de uma operação de duplo comando.
+
+Os valores de preço unitário, quantidade e valor financeiro serão tratados nos contratos assumindo os últimos algarismos como casas decimais de acordo com cada tipo de atributo. Caso o atributo seja um inteiro, deve ser preenchido o número de casas decimais com zero nos últimos algarismos.
 
 ### CBDC - [Real Digital](./RealDigital.md)
 
@@ -25,7 +31,7 @@ O CBDC (Central Bank Digital Currency) está definido no contrato chamado [RealD
 
 A carteira default será usada principalmente nos contratos de _swap_, detalhados abaixo.
 
-### DVt e MEt - [Real Tokenizado](./RealTokenizado.md)
+### DVt (Depósito bancário à vista tokenizado) e MEt (Moeda eletrônica tokenizada) - [Real Tokenizado](./RealTokenizado.md)
 
 O Real Tokenizado está definido no contrato chamado [RealTokenizado](./abi/RealTokenizado.json). 
 * A carteira default do participante será a gestora do token, porém a criação do token na rede será feita pelo Banco Central do Brasil. 
@@ -57,6 +63,23 @@ O método a ser invocado para a inserção de dados é o `addAccount`, que tem o
 * Conta do cliente fictício
 * Agência do cliente fictício
 * Carteira do cliente fictício
+
+### TPFt – Título Público Federal tokenizado
+
+O TPFt está definido em um contrato privado e de gestão do Selic.
+
+- O TPFt é fungível e identificado pelo seu código, sigla e data vencimento.
+- A carteira da Secretaria do Tesouro Nacional (STN) é a gestora do token.
+- Somente carteiras autorizadas podem receber TPFt.
+- Os tokens disponibilizados seguirão as [características dos Títulos Públicos Federais](https://www.bcb.gov.br/content/estabilidadefinanceira/selic/CaracteristicaTitulos.pdf).
+
+### Liquidação de oferta pública - [Operação 1002](./ITPFtOperation1002.md)
+
+A liquidação de oferta pública está definida no contrato chamado TPFtOperation1002 que implementa a interface [ITPFtOperation1002](./abi/ITPFtOperation1002.json). O contrato permite transferir quantidades inteiras de TPFt da carteira _default_ da STN para a carteira _default_ de um participante cadastrado por meio do método `auctionPlacement`. A liquidação da operação é realizada com a entrega contra pagamento (DvP) e somente o Bacen pode transmitir o comando cedente dessa operação.
+
+### Compra e venda - [Operação 1052](./ITPFtOperation1052.md)
+
+A operação de compra e venda entre participantes e/ou clientes está definida no contrato chamado TPFtOperation1052 que implementa a interface [ITPFtOperation1052](./abi/ITPFtOperation1052.json). O contrato permite transferir quantidades fracionárias de TPFt entre carteiras de participantes e/ou clientes cadastrados por meio do método `trade`. A liquidação da operação é executada com a entrega contra pagamento (DvP).
 
 ## Swap e comunicação Off-Chain
 

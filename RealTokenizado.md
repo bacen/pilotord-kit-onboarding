@@ -4,7 +4,7 @@
 
 Implementação do contrato do Real Tokenizado (DVt e MEt).
 
-Este contrato herda do Real Digital e todas as funções implementadas.
+Este contrato herda do Real Digital e todas as funções implementadas. As funções de autoridade são designadas ao participante do piloto.
 
 ### participant
 
@@ -36,15 +36,15 @@ constructor(string _name, string _symbol, address _authority, address _admin, st
 
 Construtor do token do Real Tokenizado.
 
-Invoca o construtor do ERC20 e dá permissão de autoridade para a carteira do BCB.
+Invoca o construtor do ERC20 e dá permissão de autoridade para a carteira do participante e admin para o BCB.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| _name | string | Nome do token: Real Tokenizado (Instituiçâo) |
-| _symbol | string | Símbolo do token: BRL |
-| _authority | address | Carteira responsável por emitir, resgatar, mover e congelar fundos (BCB) |
+| _name | string | Nome do token: RealTokenizado@CNPJ8 |
+| _symbol | string | Símbolo do token: DREX@CNPJ8 |
+| _authority | address | Carteira responsável por emitir, resgatar, mover e congelar fundos |
 | _admin | address | Carteira responsável por administrar o controle de acessos (BCB) |
 | _participant | string | Identificação do participante como string. |
 | _cnpj8 | uint256 | Primeiros 8 digitos do CNPJ da instituição |

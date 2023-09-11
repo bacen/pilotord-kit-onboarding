@@ -9,6 +9,8 @@
 # Customizar
 data-path="/caminho/para/a/pasta/data"
 genesis-file="/caminho/para/o/arquivo/genesis.json"
+revert-reason-enabled=true
+identity="<função-participante-sequencial>"
 
 logging="INFO"
 

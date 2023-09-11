@@ -29,13 +29,13 @@ Para participar do piloto do Real Digital, são necessários os seguintes itens:
 * Baixar a [coleção de scripts](https://www.postman.com/hyperledger/workspace/hyperledger-besu/overview) de chamadas das APIs do BESU via Postman. Os scripts são opcionais às validações por CLI
 * Como sugestão, a implantação do nó do participante poderá ser realizada utilizando os links abaixo:
 
-    - https://besu.hyperledger.org/stable/private-networks/get-started/install/
+    - https://besu.hyperledger.org/private-networks/get-started/install/
 
     - https://github.com/ConsenSys/quorum-kubernetes 
     
-    - https://besu.hyperledger.org/stable/private-networks/tutorials/kubernetes/
+    - https://besu.hyperledger.org/private-networks/tutorials/kubernetes/
     
-    - https://besu.hyperledger.org/stable/private-networks/tutorials/azure/
+    - https://besu.hyperledger.org/private-networks/tutorials/azure/
 
 ## Configuração do nó do participante
 
@@ -54,7 +54,7 @@ De forma a facilitar a identificação do nó do participante durante o piloto, 
 * sequencial: número sequencial (caso o participante tenha mais de nó)
     
 Configurar o nome do nó do participante no parâmetro **identity** no arquivo config.toml ou na variável de ambiente BESU_IDENTITY.
-    - https://besu.hyperledger.org/stable/public-networks/reference/cli/options/#identity
+    - https://besu.hyperledger.org/public-networks/reference/cli/options#identity
 
 ### Gênesis
 
@@ -62,11 +62,11 @@ Considerar o arquivo [genesis.json](genesis.json), disponibilizado neste kit-onb
 Importante que o arquivo genesis.json esteja sincronizado para se conectar à rede, pois, algumas informações não podem ser diferentes, como por exemplo:
 
 * chainID (identificador da rede)
-* extraData (https://besu.hyperledger.org/stable/private-networks/how-to/configure/consensus/qbft/#extra-data)
+* extraData (https://besu.hyperledger.org/private-networks/how-to/configure/consensus/qbft/#extra-data)
 
 ### Config.toml
 
-Está disponível neste kit-onboarding um template do arquivo [config.toml](config.toml) para ser utilizado na configuração do nó do participante. Atentar para os parâmetros que devem ser customizados conforme o seu ambiente (`p2p-host`, `p2p-port` e `nat-method`). Consulte a [documentação](https://besu.hyperledger.org/stable/public-networks/how-to/connect/specify-nat/#kubernetes) do Besu sobre como configurar esses parâmetros.
+Está disponível neste kit-onboarding um template do arquivo [config.toml](config.toml) para ser utilizado na configuração do nó do participante. Atentar para os parâmetros que devem ser customizados conforme o seu ambiente (`p2p-host`, `p2p-port` e `nat-method`). Consulte a [documentação](https://besu.hyperledger.org/public-networks/how-to/connect/specify-nat/#kubernetes) do Besu sobre como configurar esses parâmetros.
 
 
 ### Discovery (Bootnode)
