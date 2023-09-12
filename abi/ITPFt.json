@@ -1,0 +1,545 @@
+[
+    {
+        "inputs": [],
+        "name": "OnlyDirectPlacementContract",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "OnlyMinterContract",
+        "type": "error"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "balance",
+            "type": "uint256"
+          }
+        ],
+        "name": "FrozenBalance",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "previousAdminRole",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "newAdminRole",
+            "type": "bytes32"
+          }
+        ],
+        "name": "RoleAdminChanged",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "sender",
+            "type": "address"
+          }
+        ],
+        "name": "RoleGranted",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "sender",
+            "type": "address"
+          }
+        ],
+        "name": "RoleRevoked",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "member",
+            "type": "address"
+          }
+        ],
+        "name": "allowAuctionPlacement",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "member",
+            "type": "address"
+          }
+        ],
+        "name": "allowDirectPlacement",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "member",
+            "type": "address"
+          }
+        ],
+        "name": "allowFreezingPlacement",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "member",
+            "type": "address"
+          }
+        ],
+        "name": "allowTPFtMint",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "acronym",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "code",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maturityDate",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct ITPFt.TPFtData",
+            "name": "tpftData",
+            "type": "tuple"
+          }
+        ],
+        "name": "createTPFt",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "acronym",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "code",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maturityDate",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct ITPFt.TPFtData",
+            "name": "tpftData",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tpftAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "decreaseFrozenBalance",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "acronym",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "code",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maturityDate",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct ITPFt.TPFtData",
+            "name": "tpftData",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tpftAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "directPlacement",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "member",
+            "type": "address"
+          }
+        ],
+        "name": "disableAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "member",
+            "type": "address"
+          }
+        ],
+        "name": "enableAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+          }
+        ],
+        "name": "getRoleAdmin",
+        "outputs": [
+          {
+            "internalType": "bytes32",
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "acronym",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "code",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maturityDate",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct ITPFt.TPFtData",
+            "name": "tpftData",
+            "type": "tuple"
+          }
+        ],
+        "name": "getTPFtId",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          }
+        ],
+        "name": "grantRole",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          }
+        ],
+        "name": "hasRole",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "acronym",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "code",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maturityDate",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct ITPFt.TPFtData",
+            "name": "tpftData",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tpftAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "increaseFrozenBalance",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "member",
+            "type": "address"
+          }
+        ],
+        "name": "isEnabledAddress",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "isEnabled",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "receiverAddress",
+            "type": "address"
+          },
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "acronym",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "code",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maturityDate",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct ITPFt.TPFtData",
+            "name": "tpftData",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tpftAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "mint",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "pause",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          }
+        ],
+        "name": "renounceRole",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          }
+        ],
+        "name": "revokeRole",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "unpause",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+]

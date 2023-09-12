@@ -47,7 +47,7 @@ async function tradeByCNPJ8() {
       params.unitPrice
     );
   
-  //Se aguarda até que a transação enviada pelo sender seja confirmada na blockchain. 
+  //Aguarda até que a transação enviada pelo sender seja confirmada na blockchain. 
   await senderTransaction.wait();
 
   //Execução por parte do receiver (cessionário) para realizar operação de 
@@ -66,7 +66,7 @@ async function tradeByCNPJ8() {
       params.unitPrice
     );
 
-  //Se aguarda até que a transação enviada pelo receiver seja confirmada na blockchain.   
+  //Aguarda até que a transação enviada pelo receiver seja confirmada na blockchain.   
   await receiverTransaction.wait();
 
   // Resposta da execução da operação de compra e venda
@@ -118,7 +118,7 @@ async function tradeByAddresses() {
       params.unitPrice
     );
 
-  //Se aguarda até que a transação enviada pelo sender seja confirmada na blockchain.   
+  //Aguarda até que a transação enviada pelo sender seja confirmada na blockchain.   
   await senderTransaction.wait();
 
   //Registro por parte do receiver (cessionário) para realizar operação de 
@@ -137,7 +137,7 @@ async function tradeByAddresses() {
       params.unitPrice
     );
   
-  //Se aguarda até que a transação enviada pelo receiver seja confirmada na blockchain.   
+  //Aguarda até que a transação enviada pelo receiver seja confirmada na blockchain.   
   await receiverTransaction.wait();  
 
   // Resposta da execução da operação de compra e venda

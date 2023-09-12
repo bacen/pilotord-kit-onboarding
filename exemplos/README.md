@@ -24,4 +24,7 @@ Operação 1002: Registro de liquidação de oferta pública.
 [Exemplo 6](example6.ts):
 Operação 1052: Registro de operação de compra e venda entre participantes.
 
+[Exemplo 7](example7.ts):
+TPFt: Consulta de saldo.
+
 [<<< Voltar](../README.md)

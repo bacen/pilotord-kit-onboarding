@@ -64,9 +64,9 @@ O método a ser invocado para a inserção de dados é o `addAccount`, que tem o
 * Agência do cliente fictício
 * Carteira do cliente fictício
 
-### TPFt – Título Público Federal tokenizado
+### Título Público Federal tokenizado - [TPFt](./ITPFt.md)
 
-O TPFt está definido em um contrato privado e de gestão do Selic.
+O TPFt está definido no contrato chamado TPFt que implementa a interface [ITPFt](./abi/ITPFt.json).
 
 - O TPFt é fungível e identificado pelo seu código, sigla e data vencimento.
 - A carteira da Secretaria do Tesouro Nacional (STN) é a gestora do token.
