@@ -57,7 +57,7 @@ O contrato [RealDigitalEnableAccount](./abi/RealDigitalEnableAccount.json) permi
 O contrato [KeyDictionary](./abi/KeyDictionary.json) simulará um DICT para o Real Digital. Durante o piloto os dados de clientes, fictícios, devem ser inseridos na rede para recuperação durante as operações de _swap_. 
 O método a ser invocado para a inserção de dados é o `addAccount`, que tem os seguintes parâmetros:
 
-* Chave, identificador unico gerado pelo participante, deve ser salvo no formato hash keccak256
+* Chave, identificador único gerado pelo participante, deve ser salvo no formato hash keccak256
 * CPF do cliente fictício
 * Código do participante
 * Conta do cliente fictício
