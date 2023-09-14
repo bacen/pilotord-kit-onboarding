@@ -98,7 +98,7 @@ Evento de carteira desabilitada.
 constructor(address _authority, address _admin) internal
 ```
 
-Constrói uma instância da contrato, armazenando os argumentos informados.
+Constrói uma instância do contrato, armazenando os argumentos informados.
 
 #### Parameters
 
