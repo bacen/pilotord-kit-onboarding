@@ -5,7 +5,7 @@ function delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 };
 
-// Participante ativa um endereço para um cliente e realizando uma emissão de DVt ou MEt
+// Participante ativando um endereço para um cliente e realizando uma emissão de DVt ou MEt
 async function example3() {
     const dvtParticipantX = await ethers.getContractAt(abiRealTokenizado, '<Endereço contrato Real Tokenizado>');
     const [, participantX, customerX ] = await ethers.getSigners();
