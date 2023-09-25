@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 import abiRealDigital from '../abi/RealDigital.json';
 import abiRealDigitalDefaultAccount from '../abi/RealDigitalDefaultAccount.json';
 
-// Busca a conta padrão do participante e realiza transferêcia de CBDC
+// Busca a conta padrão do participante e realiza transferência de CBDC
 async function example2() {
     const defaultAccount = await ethers.getContractAt(abiRealDigitalDefaultAccount, '<Endereço contrato RealDigitalDefaultAccount>');
     const cbdc = await ethers.getContractAt(abiRealDigital, 'Endereço contrato RealDigital');

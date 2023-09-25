@@ -2,7 +2,7 @@
 
 Aqui estão sendo disponibilizados alguns exemplos de interação com os contratos inteligentes, de maneira a guiar o desenvolvimento por parte dos participantes.
 
-Os exemplos estarão escritos em Typescript usando o framework [Hardhat](https://hardhat.org/). Isso não é uma recomendação do uso da ferramenta por parte do Banco Central do Brasil. Os participantes são livres pra desenvolverem a interação com os contratos inteligentes da forma que bem entenderem.
+Os exemplos estarão escritos em Typescript usando o framework [Hardhat](https://hardhat.org/). Isso não é uma recomendação do uso da ferramenta por parte do Banco Central do Brasil. Os participantes são livres para desenvolverem a interação com os contratos inteligentes da forma que bem entenderem.
 
 Esse código foi testado mas não foi feita nenhuma auditoria ou análise de vulnerabilidade. Não recomendamos o uso em produção, especialmente o uso de chaves privadas no arquivo de configuração do Hardhat.
 
