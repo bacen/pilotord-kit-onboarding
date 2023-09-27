@@ -1,6 +1,6 @@
 # Solidity API
 
-## SwapTwoSteps
+## SwapTwoStepsReserve
 
 Este contrato implementa a troca de Real Tokenizado entre dois participantes distintos.
 
@@ -10,6 +10,9 @@ A operação de _swap_ implementada neste contrato é realizada em duas transaç
 
 Este contrato parte da premissa que o participante pagador já aprovou a movimentação
 de Real Digital pelo contrato usando o método _approve_ do ERC20
+
+A diferença desse contrato para o _SwapTwoSteps_ é que neste o Real Digital fica em 
+posse do contrato até o _swap_ ser concluído.
 
 ### CBDC
 

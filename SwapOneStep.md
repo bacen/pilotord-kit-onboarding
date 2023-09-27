@@ -10,6 +10,9 @@ e emite Real Tokenizado para o cliente recebedor.
 
 Todos os passos dessa operação de _swap_ são realizados em apenas uma transação.
 
+Este contrato parte da premissa que o participante pagador já aprovou a movimentação
+de Real Digital pelo contrato de _swap_ usando o método _approve_ do ERC20
+
 
 ### CBDC
 

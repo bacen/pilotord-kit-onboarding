@@ -27,4 +27,7 @@ Operação 1052: Registro de operação de compra e venda entre participantes.
 [Exemplo 7](example7.ts):
 TPFt: Consulta de saldo.
 
+[Exemplo 8](example8.ts):
+Participantes fazendo swap de Real Tokenizado em um passo
+
 [<<< Voltar](../README.md)

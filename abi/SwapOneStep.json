@@ -2,6 +2,16 @@
     {
       "inputs": [
         {
+        "internalType": "address",
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_authority",
+        "type": "address"
+      },
+      {
           "internalType": "contract RealDigital",
           "name": "_CBDC",
           "type": "address"
@@ -89,13 +99,13 @@
       "anonymous": false,
       "inputs": [
         {
-          "indexed": false,
+        "indexed": true,
           "internalType": "uint256",
           "name": "senderNumber",
           "type": "uint256"
         },
         {
-          "indexed": false,
+        "indexed": true,
           "internalType": "uint256",
           "name": "receiverNumber",
           "type": "uint256"
@@ -124,6 +134,19 @@
     },
     {
       "inputs": [],
+    "name": "ACCESS_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
       "name": "DEFAULT_ADMIN_ROLE",
       "outputs": [
         {
@@ -263,6 +286,24 @@
     {
       "inputs": [
         {
+        "internalType": "address",
+        "name": "asset",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
+    ],
+    "name": "setDigitalCurrencyApproval",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
           "internalType": "bytes4",
           "name": "interfaceId",
           "type": "bytes4"
