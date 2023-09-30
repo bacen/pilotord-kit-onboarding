@@ -23,7 +23,7 @@ si informando os CNPJ8s das partes. O CNPJ8 identifica a carteira default da par
 | cnpj8Sender | uint256 | CNPJ8 do cedente da operação. |
 | cnpj8Receiver | uint256 | CNPJ8 do cessionário da operação. |
 | callerPart | enum ITPFtOperation.CallerPart | Parte que está transmitindo o comando da operação. Se for o cedente deve ser informado CallerPart.TPFtSender, se for o cessionário deve ser informado CallerPart.TPFtReceiver. |
-| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
+| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp unix). Deve-se usar horário UTC+0 e não GMT+3/UTC-3 por exemplo.. |
 | tpftAmount | uint256 | Quantidade de TPFt a ser negociada. Incluir as 2 casas decimais. |
 | unitPrice | uint256 | Preço unitário do TPFt. Incluir as 8 casas decimais. |
 
@@ -43,7 +43,7 @@ Função para os participantes realizarem a operação de compra e venda entre s
 | sender | address | Endereço da carteira do cedente da operação. |
 | receiver | address | Endereço da carteira do cessionário da operação. |
 | callerPart | enum ITPFtOperation.CallerPart | Parte que está transmitindo o comando da operação. Se for o cedente deve ser informado CallerPart.TPFtSender, se for o cessionário deve ser informado CallerPart.TPFtReceiver. |
-| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
+| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp unix). Deve-se usar horário UTC+0 e não GMT+3/UTC-3 por exemplo.. |
 | tpftAmount | uint256 | Quantidade de TPFt a ser negociada. Incluir as 2 casas decimais. |
 | unitPrice | uint256 | Preço unitário do TPFt. Incluir as 8 casas decimais. |
 

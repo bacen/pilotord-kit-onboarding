@@ -57,7 +57,7 @@ Função para criar um novo TPFt.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
+| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp unix). Deve-se usar horário UTC+0 e não GMT+3/UTC-3 por exemplo.. |
 
 ### mint
 
@@ -72,7 +72,7 @@ Função para emitir TPFt.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | receiverAddress | address | Endereço do cessionário da operação. Nesta operação sempre será o endereço da STN. |
-| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
+| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp unix). Deve-se usar horário UTC+0 e não GMT+3/UTC-3 por exemplo.. |
 | tpftAmount | uint256 | Quantidade de TPFt a ser emitida. |
 
 ### getTPFtId
@@ -87,13 +87,14 @@ Função para obter o ID do título.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
+| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp unix). Deve-se usar horário UTC+0 e não GMT+3/UTC-3 por exemplo.. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | Retorna o ID do título.  Se não existir um TPFt com as informações fornecidas, o valor retornado será 0. |
+| [0] | uint256 | Retorna o ID do título. 
+ Se não existir um TPFt com as informações fornecidas, o valor retornado será 0. |
 
 ### directPlacement
 
@@ -108,7 +109,7 @@ Função para realizar uma operação de colocação direta de TPFt.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | from | address | Endereço da carteira de origem da operação de colocação direta. |
-| to | address | Endereço da carteira de destino da operação de colocação direta. |
+| to | address | Endereço da carteira de destino da operação de colocação direta. |(timestamp unix). Deve-se usar horário UTC+0 e não GMT+3/UTC-3 por exemplo.
 | tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
 | tpftAmount | uint256 | Quantidade de TPFt a ser enviada na operação de colocação direta. |
 
@@ -124,7 +125,7 @@ Função para incrementar tokens parcialmente bloqueados de uma carteira. Soment
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| from | address | Endereço da carteira que os ativos serão bloqueados. |
+| from | address | Endereço da carteira que os ativos serão bloqueados. |(timestamp unix). Deve-se usar horário UTC+0 e não GMT+3/UTC-3 por exemplo.
 | tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
 | tpftAmount | uint256 | Quantidade de TPFt. |
 
@@ -140,7 +141,7 @@ Função para decrementar tokens parcialmente bloqueados de uma carteira. Soment
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| from | address | Endereço da carteira que os ativos serão desbloqueados. |
+| from | address | Endereço da carteira que os ativos serão desbloqueados. |(timestamp unix). Deve-se usar horário UTC+0 e não GMT+3/UTC-3 por exemplo.
 | tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
 | tpftAmount | uint256 | Quantidade de TPFt. |
 

@@ -15,7 +15,7 @@ async function getTpftId() {
       tpftData: {
         acronym: '<A sigla do TPFt>',
         code: '<O código único do TPFt>',
-        maturityDate: '<Data de vencimento em milissegundos do TPFt (timestamp Unix)>',
+        maturityDate: '<Data de vencimento em milissegundos do TPFt (timestamp unix). Deve-se usar horário UTC+0 e não GMT+3/UTC-3 por exemplo.>',
       }
   }
   
