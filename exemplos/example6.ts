@@ -1,18 +1,57 @@
 import { ethers } from "hardhat";
 import { BigNumber } from "ethers";
+import { setApprovalForAll } from "./setApprovalForAll";
+import { approveRealDigital } from "./approveRealDigital";
 import abiITPFtOperation1052 from "../abi/ITPFtOperation1052.json";
+import abiAddressDiscovery from "../abi/AddressDiscovery.json";
 
 /**
  * TPFtOperation1052 - Permite que participantes cadastrados no Real Digital 
  * realizem a operação de compra e venda envolvendo Título Público Federal tokenizado (TPFt) 
  * entre si e/ou seus clientes utilizando seus CNPJ8s.
+ * @dev Para a operação ocorrer é necessário que cada carteira de aprovação para o endereço contrato TPFtDvP
+ * no Real Digital através da função approve e no TPFt através setApprovalForAll.
  */
 async function tradeByCNPJ8() {
+  /**
+   * Obtém contrato Address Discovery
+   */
+  const addressDiscrovery = await ethers.getContractAt(
+    abiAddressDiscovery,
+    '<Endereço do Contrato Address Discovery>'
+  );
+
+  /**
+   * Endereço do TPFt
+   */
+  const tpftAddress = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFt'));
+ 
+  /**
+   * Endereço do TPFtDvP
+   */
+  const tpftDvpAddress = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFtDvP'));
+
+  /**
+   * Endereço do Real Digital
+   */
+  const realDigitalAddress = await addressDiscrovery.addressDiscovery(ethers.utils.id('RealDigital'));
+
+  /**
+   * Endereço do TPFtOperation1052
+   */
+  const tpftOperation1052Address = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFtOperation1052'));
+  
+  /**
+   * Obtém contrato TPFtOperation1052
+   */
   const TPFtOperation1052 = await ethers.getContractAt(
     abiITPFtOperation1052,
-    "<Endereço do Contrato TPFtOperation1052>"
+    tpftOperation1052Address
   );
-  // Sender refere-se ao cedente (detentor de TPFts) e receiver refere-se ao cessionário (não detentor de TPFts)
+
+  /**
+   * Sender refere-se ao cedente (detentor de TPFts) e receiver refere-se ao cessionário (não detentor de TPFts)
+   */
   const [, senderAccount, receiverAccount] = await ethers.getSigners();
   const params = {
     operationId: "<Número de operação + data vigente no formato yyyyMMdd>",
@@ -22,17 +61,39 @@ async function tradeByCNPJ8() {
     tpftData: {
       acronym: "<A sigla do TPFt>",
       code: "<O código único do TPFt>",
-      maturityDate: "<Data de vencimento em milissegundos do TPFt (timestamp Unix)>",
+      // Ex: const date = new Date("2023-09-26"); Math.floor(date.getTime() / 1000); retorno 1695686400
+      maturityDate: "<Data de vencimento em segundos do TPFt (timestamp Unix)>",
     },
     tpftAmount: "<Quantidade de TPFt a ser negociada>",
     unitPrice: "<Preço unitário do TPFt>",
   };
 
-  const callerPartBySender = BigNumber.from(0); //Quando o cedente está transmitindo o comando da operação.
-  const callerPartByReceiver = BigNumber.from(1); //Quando o cessionário está transmitindo o comando da operação.
+  /**
+   * Quando o cedente está transmitindo o comando da operação.
+   */
+  const callerPartBySender = BigNumber.from(0);
+  /**
+   * Quando o cessionário está transmitindo o comando da operação.
+   */
+  const callerPartByReceiver = BigNumber.from(1);
 
-  //Execução por parte do sender (cedente) para realizar operação de 
-  //compra e venda informando o CNPJ8.
+  /**
+   * Função a ser chamada somente uma vez para aprovar o contrato TPFtDvP no TPFt.
+   */
+  setApprovalForAll(senderAccount.address, tpftAddress, tpftDvpAddress) 
+
+  /**
+   * Função a ser chamada para aprovar uma quantidade de Real Digital para o contrato TPFtDvP
+   * de acordo com os critérios do participante.
+   */
+  const realDigitalAmount = 1000;
+
+  approveRealDigital(realDigitalAddress, receiverAccount.address, realDigitalAmount, tpftDvpAddress)
+
+  /**
+   * Execução por parte do sender (cedente) para realizar operação de 
+   * Compra e venda informando o CNPJ8.
+   */
   const senderTransaction = await TPFtOperation1052
     .connect(senderAccount)
     ?.[
@@ -47,11 +108,15 @@ async function tradeByCNPJ8() {
       params.unitPrice
     );
   
-  //Aguarda até que a transação enviada pelo sender seja confirmada na blockchain. 
+  /**
+   * Aguarda até que a transação enviada pelo sender seja confirmada na blockchain. 
+   */
   await senderTransaction.wait();
 
-  //Execução por parte do receiver (cessionário) para realizar operação de 
-  //compra e venda informando o CNPJ8.
+  /**
+   * Execução por parte do receiver (cessionário) para realizar operação de 
+   * Compra e venda informando o CNPJ8.
+   */
   const receiverTransaction = await TPFtOperation1052
     .connect(receiverAccount)
     ?.[
@@ -66,10 +131,14 @@ async function tradeByCNPJ8() {
       params.unitPrice
     );
 
-  //Aguarda até que a transação enviada pelo receiver seja confirmada na blockchain.   
+  /**
+   * Aguarda até que a transação enviada pelo receiver seja confirmada na blockchain.   
+   */
   await receiverTransaction.wait();
 
-  // Resposta da execução da operação de compra e venda
+  /**
+   * Resposta da execução da operação de compra e venda
+   */
   console.log(senderTransaction.hash);
   console.log(receiverTransaction.hash);
 }
@@ -78,32 +147,88 @@ async function tradeByCNPJ8() {
  * TPFtOperation1052 - Permite que participantes cadastrados no Real Digital 
  * realizem a operação de compra e venda envolvendo Título Público Federal tokenizado (TPFt) 
  * entre si e/ou seus clientes utilizando seus endereços de carteiras.
+ * @dev Para a operação ocorrer é necessário que cada carteira de aprovação para o endereço contrato TPFtDvP
+ * no Real Digital através da função approve e no TPFt através setApprovalForAll.
  */
 async function tradeByAddresses() {
-  const TPFtOperation1052 = await ethers.getContractAt(
-    abiITPFtOperation1052,
-    "<Endereço do Contrato TPFtOperation1052>"
+
+  /**
+   * Obtém contrato Address Discovery
+   */
+  const addressDiscrovery = await ethers.getContractAt(
+   abiAddressDiscovery,
+   '<Endereço do Contrato Address Discovery>'
   );
 
-  // Sender refere-se ao cedente (detentor de TPFts) e receiver refere-se ao cessionário (não detentor de TPFts)
+  /**
+   * Endereço do TPFt
+   */
+  const tpftAddress = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFt'));
+ 
+  /**
+   * Endereço do TPFtDvP
+   */
+  const tpftDvpAddress = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFtDvP'));
+
+  /**
+   * Endereço do Real Digital
+   */
+  const realDigitalAddress = await addressDiscrovery.addressDiscovery(ethers.utils.id('RealDigital'));
+
+  /**
+   * Endereço do TPFtOperation1052
+   */
+  const tpftOperation1052Address = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFtOperation1052'));
+
+  const TPFtOperation1052 = await ethers.getContractAt(
+    abiITPFtOperation1052,
+    tpftOperation1052Address
+  );
+
+  /**
+   * Sender refere-se ao cedente (detentor de TPFts) e receiver refere-se ao cessionário (não detentor de TPFts)
+   */
   const [, senderAccount, receiverAccount] = await ethers.getSigners();
+  
   const params = {
     operationId: "<Número de operação + data vigente no formato yyyyMMdd>",
     callerPart: "<Parte que está transmitindo o comando da operação>",
     tpftData: {
       acronym: "<A sigla do TPFt>",
       code: "<O código único do TPFt>",
-      maturityDate: "<Data de vencimento em milissegundos do TPFt (timestamp Unix)>",
+      // Ex: const date = new Date("2023-09-26"); Math.floor(date.getTime() / 1000); retorno 1695686400
+      maturityDate: "<Data de vencimento em segundos do TPFt (timestamp Unix)>",
     },
     tpftAmount: "<Quantidade de TPFt a ser negociada>",
     unitPrice: "<Preço unitário do TPFt>",
   };
   
-  const callerPartBySender = BigNumber.from(0); //Quando o cedente está transmitindo o comando da operação.
-  const callerPartByReceiver = BigNumber.from(1); //Quando o cessionário está transmitindo o comando da operação.
+  /**
+   * Quando o cedente está transmitindo o comando da operação.
+   */
+  const callerPartBySender = BigNumber.from(0);
+  /**
+   * Quando o cessionário está transmitindo o comando da operação.
+   */
+  const callerPartByReceiver = BigNumber.from(1);
 
-  //Registro por parte do sender (cedente) para realizar operação de 
-  //compra e venda informando o endereço das carteiras.  
+  /**
+   * Função a ser chamada somente uma vez para aprovar o contrato TPFtDvP no TPFt.
+   */
+  setApprovalForAll(senderAccount.address, tpftAddress, tpftDvpAddress) 
+
+  /**
+    * Função a ser chamada para aprovar uma quantidade de Real Digital para o contrato TPFtDvP
+    * de acordo com os critérios do participante.
+    */
+  const realDigitalAmount = 1000;
+ 
+  approveRealDigital(realDigitalAddress, receiverAccount.address, realDigitalAmount, tpftDvpAddress)
+
+  /**
+   * Registro por parte do sender (cedente) para realizar operação de 
+   * compra e venda informando o endereço das carteiras.  
+   */
   const senderTransaction = await TPFtOperation1052
     .connect(senderAccount)
     ?.[
@@ -118,11 +243,15 @@ async function tradeByAddresses() {
       params.unitPrice
     );
 
-  //Aguarda até que a transação enviada pelo sender seja confirmada na blockchain.   
+  /**
+   * Aguarda até que a transação enviada pelo sender seja confirmada na blockchain.   
+   */
   await senderTransaction.wait();
 
-  //Registro por parte do receiver (cessionário) para realizar operação de 
-  //compra e venda informando o endereço das carteiras.    
+  /**
+   * Registro por parte do receiver (cessionário) para realizar operação de 
+   * compra e venda informando o endereço das carteiras.    
+   */
   const receiverTransaction = await TPFtOperation1052
     .connect(receiverAccount)
     ?.[
@@ -137,10 +266,14 @@ async function tradeByAddresses() {
       params.unitPrice
     );
   
-  //Aguarda até que a transação enviada pelo receiver seja confirmada na blockchain.   
+  /**
+   * Aguarda até que a transação enviada pelo receiver seja confirmada na blockchain.   
+   */
   await receiverTransaction.wait();  
 
-  // Resposta da execução da operação de compra e venda
+  /**
+   * Resposta da execução da operação de compra e venda
+   */
   console.log(senderTransaction.hash);
   console.log(receiverTransaction.hash);
 }
