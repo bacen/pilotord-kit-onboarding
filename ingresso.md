@@ -31,12 +31,14 @@ Para participar do piloto do Real Digital, são necessários os seguintes itens:
 
     - https://besu.hyperledger.org/private-networks/get-started/install/
 
-    - https://github.com/ConsenSys/quorum-kubernetes 
+    - https://github.com/ConsenSys/quorum-kubernetes
+
+    - https://github.com/aws-samples/aws-besu-realdigital
     
     - https://besu.hyperledger.org/private-networks/tutorials/kubernetes/
     
     - https://besu.hyperledger.org/private-networks/tutorials/azure/
-
+    
 ## Configuração do nó do participante
 
 Para implantar o nó do participante na rede piloto do Real Digital deverão ser utilizadas as seguintes configurações:
