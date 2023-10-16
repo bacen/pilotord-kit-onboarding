@@ -9,7 +9,7 @@ export async function approveRealDigital(
   walletAccount: string, 
   realDigitalAmount: number,
   tpftDvpAddress: string,
-  swapOneStepAddrress?: string) 
+  swapOneStepFromAddrress?: string) 
   {
 
     /**
@@ -30,11 +30,11 @@ export async function approveRealDigital(
      */
     await realDigital.connect(walletAccountSigner).approve(tpftDvpAddress, realDigitalAmount);
 
-    if(swapOneStepAddrress) {
+    if(swapOneStepFromAddrress) {
       /**
-       * Aprova o contrato SwapOneStep a negociar valor de Real Digital
+       * Aprova o contrato SwapOneStepFrom a negociar valor de Real Digital
        */
-      await realDigital.connect(walletAccountSigner).approve(swapOneStepAddrress, realDigitalAmount);
+      await realDigital.connect(walletAccountSigner).approve(swapOneStepFromAddrress, realDigitalAmount);
     }
   }
 
@@ -52,7 +52,7 @@ export async function approveRealDigital(
   ) 
 
   /**
-   * Função a ser chamada para aprovar uma quantidade de Real Digital para o contrato TPFtDvP e SwapOneStep
+   * Função a ser chamada para aprovar uma quantidade de Real Digital para o contrato TPFtDvP e SwapOneStepFrom
    * de acordo com os critérios do participante.
    */
     approveRealDigital(
@@ -60,5 +60,5 @@ export async function approveRealDigital(
       '<Endereço de carteira do participante>',
       realDigitalAmount,
       '<Endereço do contrato TPFtDvP>',
-      '<Endereço do contrato SwapOneStep>'
+      '<Endereço do contrato SwapOneStepFrom>'
     ) 
