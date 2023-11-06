@@ -64,3 +64,5 @@ metrics-port=9545
 permissions-nodes-contract-enabled=true
 permissions-nodes-contract-address="0x0000000000000000000000000000000000009999"
 permissions-nodes-contract-version=2
+permissions-accounts-contract-enabled=true
+permissions-accounts-contract-address="0xb3f31049dADf7Ab0239afc2f04568CB19543044D"
