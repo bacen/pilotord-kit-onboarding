@@ -92,7 +92,7 @@ Os quatro endereços (enodes) abaixo devem ser configurados no parâmetro (BESU_
 Exemplo: 
     BESU_BOOTNODES="enode://bootnode1@host:port,enode://bootnode2@host:port,enode://bootnode3@host:port,enode://bootnode4@host:port"
 
-## Permissionamento do nó do participante na rede do piloto
+## Permissionamento do participante na rede do piloto
 
 O permissionamento na rede será efetuado, por meio de contrato, exclusivamente pelo Banco Central do Brasil, administrador da rede.
 
@@ -123,6 +123,9 @@ Para solicitar a permissão, siga os passos abaixo:
     permissions-nodes-contract-enabled=true
     permissions-nodes-contract-address="0x0000000000000000000000000000000000009999"
     permissions-nodes-contract-version=2
+    permissions-accounts-contract-enabled=true
+    permissions-accounts-contract-address="0xb3f31049dADf7Ab0239afc2f04568CB19543044D"
+
     ```
 
 ## Execução do nó do participante
