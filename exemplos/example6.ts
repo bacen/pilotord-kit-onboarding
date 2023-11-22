@@ -58,6 +58,7 @@ async function tradeByCNPJ8() {
     operationId: "<Número de operação + data vigente no formato yyyyMMdd>",
     cnpj8Sender: "<CNPJ8 do cedente da operação>",
     cnpj8Receiver: "<CNPJ8 do cessionário da operação>",
+    callerPart: "<Parte que está transmitindo o comando da operação>",
     tpftData: {
       acronym: "<A sigla do TPFt>",
       code: "<O código único do TPFt>",
@@ -192,6 +193,7 @@ async function tradeByAddresses() {
   
   const params = {
     operationId: "<Número de operação + data vigente no formato yyyyMMdd>",
+    callerPart: "<Parte que está transmitindo o comando da operação>",
     tpftData: {
       acronym: "<A sigla do TPFt>",
       code: "<O código único do TPFt>",

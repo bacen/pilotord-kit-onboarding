@@ -59,6 +59,7 @@ async function tpftOperation1002() {
     operationId: '<Número de operação + data vigente no formato yyyyMMdd>',
     cnpj8Sender: '<CNPJ8 do cedente da operação. Sempre será o CNPJ8 da STN>',
     cnpj8Receiver: '<CNPJ8 do cessionário da operação>',
+    callerPart: '<Parte que está transmitindo o comando da operação>',
     tpftData: {
       acronym: '<A sigla do TPFt>',
       code: "<O código único do TPFt>",
@@ -112,3 +113,5 @@ async function tpftOperation1002() {
      */
     console.log(receiverTransaction.hash);  
 }
+
+
