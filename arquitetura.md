@@ -9,7 +9,7 @@ Por se tratar de um piloto em ambiente de testes, a arquitetura apresentada est�
 ## Hyperledger Besu para redes privadas
 
 **Versão do Hyperledger Besu** utilizada na rede do piloto do Real Digital:
-    [23.4.1](https://github.com/hyperledger/besu/releases/tag/23.4.1).
+    [23.10.1](https://github.com/hyperledger/besu/releases/tag/23.10.1).
 
 Para uso de versões superiores, a compatibilidade deve ser verificada com a equipe de desenvolvimento do piloto. Ao longo do projeto poderão ser testadas atualizações de versões.
 
