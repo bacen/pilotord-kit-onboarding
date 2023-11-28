@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "ec082d1b-e72c-4ec9-9e31-8f9e84f8100d",
+		"name": "zether-client",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host1}}/api/v1/accounts",
+					"host": [
+						"{{host1}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get shielded accounts in Real Digital ZSC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host1}}/api/v1/shieldedAccounts?zsc={{zsc1}}",
+					"host": [
+						"{{host1}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"shieldedAccounts"
+					],
+					"query": [
+						{
+							"key": "zsc",
+							"value": "{{zsc1}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Participant account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"participantEth\", jsonData.eth);",
+							"postman.setEnvironmentVariable(\"participantShielded\", jsonData.shielded.join(','));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Participant\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host1}}/api/v1/accounts",
+					"host": [
+						"{{host1}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Participant in Real Digital ZSC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Participant\",\n    \"zsc\": \"{{zsc1}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host1}}/api/v1/accounts/{{participantShielded}}/register",
+					"host": [
+						"{{host1}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"{{participantShielded}}",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Participant funds shielded account in Real Digital ZSC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ethAddress\": \"{{participantEth}}\",\n    \"amount\": 100,\n    \"zsc\": \"{{zsc1}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host1}}/api/v1/fund",
+					"host": [
+						"{{host1}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fund"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Participant A transfers 50 Real Digital zether to Participant B",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sender\": \"{{participantShielded}}\",\n    \"receiver\": \"{{participantBShielded}}\",\n    \"decoys\": [],\n    \"amount\": 50,\n    \"zsc\": \"{{zsc1}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host1}}/api/v1/transfer",
+					"host": [
+						"{{host1}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Participant checks RealDigital balance",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host1}}/api/v1/accounts/{{participantEth}}/balance",
+					"host": [
+						"{{host1}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"{{participantEth}}",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Participant checks shielded balance in Real Digital ZSC",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host1}}/api/v1/accounts/{{participantShielded}}/balance?zsc={{zsc1}}",
+					"host": [
+						"{{host1}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"{{participantShielded}}",
+						"balance"
+					],
+					"query": [
+						{
+							"key": "zsc",
+							"value": "{{zsc1}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Participant withdraws Real Digital zether",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ethAddress\": \"{{participantEth}}\",\n    \"amount\": 50,\n    \"zsc\": \"{{zsc1}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host1}}/api/v1/withdraw",
+					"host": [
+						"{{host1}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
