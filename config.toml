@@ -31,7 +31,7 @@ discovery-enabled=true
 #p2p-host="0.0.0.0"
 p2p-port=30303
 max-peers=25
-
+remote-connections-limit-enabled=false
 host-allowlist=["*"]
 
 # JSON-RPC
