@@ -35,7 +35,7 @@ remote-connections-limit-enabled=false
 host-allowlist=["*"]
 
 # JSON-RPC
-rpc-http-api=["DEBUG","ETH", "ADMIN", "WEB3", "QBFT", "NET", "EEA", "PRIV", "PERM","TXPOOL","PLUGINS","MINER","TRACE"]
+rpc-http-api=["DEBUG", "ETH", "ADMIN", "WEB3", "QBFT", "NET", "PERM", "TXPOOL", "PLUGINS", "MINER", "TRACE"]
 rpc-http-cors-origins=["*"]
 rpc-http-enabled=true
 rpc-http-max-active-connections=2000
@@ -52,7 +52,7 @@ graphql-http-cors-origins=["*"]
 rpc-ws-enabled=false
 rpc-ws-host="0.0.0.0"
 rpc-ws-port=8546
-rpc-ws-api=["DEBUG","ETH", "ADMIN", "WEB3", "QBFT", "NET", "EEA", "PRIV", "PERM"]
+rpc-ws-api=["DEBUG", "ETH", "ADMIN", "WEB3", "QBFT", "NET", "PERM", "TXPOOL", "PLUGINS", "MINER", "TRACE"]
 rpc-ws-authentication-enabled=false
 
 # Metrics

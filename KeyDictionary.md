@@ -19,6 +19,7 @@ Referência para o contrato de Real Digital.
 ```solidity
 struct CustomerData {
   uint256 taxId;      // O CPF do cliente
+  uint256 cnpj8       // O Cnpj8 do participante
   uint256 bankNumber; // O código da participante
   uint256 account;    // A conta do cliente
   uint256 branch;     // A agência do cliente   
@@ -72,7 +73,7 @@ Constrói uma instância do contrato e armazena o endereço do contrato do Real 
 ### addAccount
 
 ```solidity
-function addAccount(bytes32 key, uint256 _taxId, uint256 _bankNumber, uint256 _account, uint256 _branch, address _wallet) public
+function addAccount(bytes32 key, uint256 _taxId, uint256 _bankNumber, uint256 _account, uint256 _branch, address _wallet, uint256 _cnpj8) public
 ```
 
 Adiciona os dados do cliente, vinculando à chave _key_.
@@ -87,6 +88,7 @@ Adiciona os dados do cliente, vinculando à chave _key_.
 | _account | uint256 | A conta do cliente |
 | _branch | uint256 | A agência do cliente |
 | _wallet | address | A carteira do cliente |
+| _cnpj8 | uint256 | O Cnpj8 do participante |
 
 ### getWallet
 
@@ -136,7 +138,7 @@ Retorna todos os dados do cliente.
 ### updateData
 
 ```solidity
-function updateData(bytes32 key, uint256 _taxId, uint256 _bankNumber, uint256 _account, uint256 _branch, address _wallet) public
+function updateData(bytes32 key, uint256 _taxId, uint256 _cnpj8, uint256 _bankNumber, uint256 _account, uint256 _branch, address _wallet) public
 ```
 
 Atualiza os dados do cliente vinculado à chave _key_. Apenas o dono da carteira do participante ao qual o cliente vinculou sua chave pode alterar os dados por esta função.
@@ -147,6 +149,7 @@ Atualiza os dados do cliente vinculado à chave _key_. Apenas o dono da carteira
 | ---- | ---- | ----------- |
 | key | bytes32 | A nova chave do cliente |
 | _taxId | uint256 | O novo CPF do cliente |
+| _cnpj8 | uint256 | O Cnpj8 do participante |
 | _bankNumber | uint256 | O novo ID do participante responsável pelo cliente |
 | _account | uint256 | A nova conta do cliente |
 | _branch | uint256 | A nova agência do cliente |
@@ -155,7 +158,7 @@ Atualiza os dados do cliente vinculado à chave _key_. Apenas o dono da carteira
 ### requestKey
 
 ```solidity
-function requestKey(bytes32 key, uint256 _taxId, uint256 _bankNumber, uint256 _account, uint256 _branch, address _wallet) public
+function requestKey(bytes32 key, uint256 _taxId, uint256 _cnpj8, uint256 _bankNumber, uint256 _account, uint256 _branch, address _wallet) public
 ```
 
 Requisita uma chave que pertence a outro participante.
@@ -166,6 +169,7 @@ Requisita uma chave que pertence a outro participante.
 | ---- | ---- | ----------- |
 | key | bytes32 | A chave requisitada |
 | _taxId | uint256 | O CPF do cliente requisitante |
+| _cnpj8 | uint256 | O Cnpj8 do participante |
 | _bankNumber | uint256 | ID do participante responsável pelo cliente requisitante |
 | _account | uint256 | A conta do cliente requisitante |
 | _branch | uint256 | A agência do cliente requisitante |
