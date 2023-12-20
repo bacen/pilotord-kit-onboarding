@@ -150,7 +150,9 @@ Função para decrementar tokens parcialmente bloqueados de uma carteira. Soment
 function pause() external
 ```
 
-Função para pausar o token em casos necessários, bloqueando-o para todas as operações.
+Função externa utilizada pelo Bacen que é detentor da _ROLE_ DEFAULT_ADMIN_ROLE para colocar o contrato em pausa.
+Apenas o detentor desse papel pode executar essa função, verificado pelo modificador "onlyRole(DEFAULT_ADMIN_ROLE)".
+O contrato em pausa bloqueará a execução de funções, garantindo que o contrato possa ser temporariamente interrompido.
 
 ### unpause
 
@@ -158,5 +160,81 @@ Função para pausar o token em casos necessários, bloqueando-o para todas as o
 function unpause() external
 ```
 
-Função para despausar o token em casos necessários, desbloqueando-o para todas as operações.
+Função externa utilizada pelo Bacen que é detentor da _ROLE_ DEFAULT_ADMIN_ROLE para retirar o contrato de pausa.
+Apenas o detentor desse papel pode executar essa função, verificado pelo modificador "onlyRole(DEFAULT_ADMIN_ROLE)".
+O contrato retirado de pausa permite a execução normal de todas as funções novamente após ter sido previamente pausado.
+
+### setPaymentStatus
+
+```solidity
+function setPaymentStatus(address account, uint256 tpftId, bool status) external
+```
+
+Função externa que permite definir o status de pagamento para um determinado endereço da carteira e ID de TPFt.
+Apenas contas com a Role REPAYMENT_ROLE têm permissão para utilizar esta função.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | address | Endereço da carteira para o qual o status de pagamento será definido. |
+| tpftId | uint256 | ID do TPFt para o qual o status de pagamento será definido. |
+| status | bool | Status de pagamento a ser definido (verdadeiro para pago, falso para não pago). |
+
+### getPaymentStatus
+
+```solidity
+function getPaymentStatus(address account, uint256 tpftId) external view returns (bool)
+```
+
+Função externa que retorna o status de pagamento para um determinado endereço da carteira e ID de TPFt.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| account | address | Endereço da carteira para a qual o status de pagamento está sendo consultado. |
+| tpftId | uint256 | ID do TPFt para o qual o status de pagamento está sendo consultado. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | bool | Retorna true se o pagamento foi efetuado, false se não foi. |
+
+### setTpftIdToPaused
+
+```solidity
+function setTpftIdToPaused(uint256 tpftId, bool status) external
+```
+
+Função externa que permite definir o status de pausa para um determinado ID de TPFt.
+Apenas contas com a Role REPAYMENT_ROLE têm permissão para utilizar esta função.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tpftId | uint256 | ID do TPFt para o qual o status de pausa será ajustado. |
+| status | bool | Status de pausa a ser definido (verdadeiro para pausado, falso para não pausado). |
+
+### isTpftIdPaused
+
+```solidity
+function isTpftIdPaused(uint256 tpftId) external view returns (bool)
+```
+
+Função externa que retorna o status de pausa para um determinado ID de TPFt.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tpftId | uint256 | ID do TPFt para o qual o status de pausa está sendo consultado. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | bool | Retorna true se o TPFt está pausado para operações, false se não está. |
 

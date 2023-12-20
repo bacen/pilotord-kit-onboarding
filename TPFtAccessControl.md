@@ -40,6 +40,14 @@ bytes32 FREEZER_ROLE
 
 _Role_ que permite bloquear saldo de uma carteira.
 
+### REPAYMENT_ROLE
+
+```solidity
+bytes32 REPAYMENT_ROLE
+```
+
+_Role_ que permite realizar a operação de resgate.
+
 ### constructor
 
 ```solidity
@@ -97,7 +105,7 @@ Habilita a carteira a realizar a liquidação de oferta pública envolvendo TPFt
 function allowFreezingPlacement(address member) public
 ```
 
-Habilita a carteira a bloquear e desbloquear saldo de ativos.
+Habilita a carteira a ter saldo de ativos bloqueados.
 
 #### Parameters
 

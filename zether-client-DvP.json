@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "211e7389-99b6-4113-8612-5760edd352e3",
+		"name": "zether-client DvP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cedente",
+			"item": [
+				{
+					"name": "(Cedente) Creates onetime signer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"txSubmitterParticipant\", jsonData.address);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCedente}}/api/v1/onetimeSigner",
+							"host": [
+								"{{hostCedente}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"onetimeSigner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Cedente) Initiates DvP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"if (jsonData.transactionSubmitter) {",
+									"    postman.setEnvironmentVariable(\"txSubmitterParticipant\", jsonData.transactionSubmitter);",
+									"    postman.setEnvironmentVariable(\"proofParticipant\", jsonData.proof);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sender\": \"{{participantShielded}}\",\n    \"receiver\": \"{{cessionarioShielded}}\",\n    \"amount\": 1,\n    \"signer\": \"{{txSubmitterParticipant}}\",\n    \"zsc\": \"{{ZSCERC1155Restricted}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCedente}}/api/v1/startDvP",
+							"host": [
+								"{{hostCedente}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"startDvP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Cedente) Executes DvP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"senderEthAddress\": \"{{txSubmitterParticipant}}\",\n    \"counterpartyEthAddress\": \"{{txSubmitterCessionario}}\",\n    \"proof\": \"{{proofParticipant}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCedente}}/api/v1/executeDvP",
+							"host": [
+								"{{hostCedente}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"executeDvP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Cedente) Register Participant in ZSC",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Participant\",\n    \"zsc\": \"{{ZSCERC1155Restricted}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCedente}}/api/v1/accounts/{{participantShielded}}/register",
+							"host": [
+								"{{hostCedente}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"{{participantShielded}}",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Cedente) Participant funds shielded account in ZSC",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ethAddress\": \"{{participantEth}}\",\n    \"amount\": 1,\n    \"zsc\": \"{{ZSCERC1155Restricted}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCedente}}/api/v1/fund/erc1155",
+							"host": [
+								"{{hostCedente}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fund",
+								"erc1155"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cessionario",
+			"item": [
+				{
+					"name": "(Cessionario) Creates onetime signer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"txSubmitterParticipant\", jsonData.address);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCessionario}}/api/v1/onetimeSigner",
+							"host": [
+								"{{hostCessionario}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"onetimeSigner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Cessionario) Initiates DvP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"if (jsonData.transactionSubmitter) {",
+									"    postman.setEnvironmentVariable(\"txSubmitterParticipant\", jsonData.transactionSubmitter);",
+									"    postman.setEnvironmentVariable(\"proofParticipant\", jsonData.proof);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sender\": \"{{participantShield}}\",\n    \"receiver\": \"{{cedenteShielded}}\",\n    \"amount\": 1,\n    \"signer\": \"{{txSubmitterParticipant}}\",\n    \"zsc\": \"{{ZSCRestrictedDvP}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCessionario}}/api/v1/startDvP",
+							"host": [
+								"{{hostCessionario}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"startDvP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Cessionario) Executes DvP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"senderEthAddress\": \"{{txSubmitterParticipant}}\",\n    \"counterpartyEthAddress\": \"{{txSubmitterCedente}}\",\n    \"proof\": \"{{proofParticipant}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCessionario}}/api/v1/executeDvP",
+							"host": [
+								"{{hostCessionario}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"executeDvP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Cessionario) Register Participant in ZSC",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Participant\",\n    \"zsc\": \"{{ZSCRestrictedDvP}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCessionario}}/api/v1/accounts/{{participantShielded}}/register",
+							"host": [
+								"{{hostCessionario}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"{{participantShielded}}",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Cessionario) Participant funds shielded account in ZSC",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ethAddress\": \"{{participantEth}}\",\n    \"amount\": 1,\n    \"zsc\": \"{{ZSCRestrictedDvP}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostCessionario}}/api/v1/fund/erc20",
+							"host": [
+								"{{hostCessionario}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fund",
+								"erc20"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Participant Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"participantEth\", jsonData.eth);",
+							"postman.setEnvironmentVariable(\"participantShielded\", jsonData.shielded.join(','));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Participant\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostCedente}}/api/v1/accounts",
+					"host": [
+						"{{hostCedente}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
