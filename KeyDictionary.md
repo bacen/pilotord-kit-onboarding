@@ -73,7 +73,7 @@ Constrói uma instância do contrato e armazena o endereço do contrato do Real 
 ### addAccount
 
 ```solidity
-function addAccount(bytes32 key, uint256 _taxId, uint256 _bankNumber, uint256 _account, uint256 _branch, address _wallet, uint256 _cnpj8) public
+function addAccount(bytes32 key, uint256 _taxId, uint256 _cnpj8, uint256 _bankNumber, uint256 _account, uint256 _branch, address _wallet) public
 ```
 
 Adiciona os dados do cliente, vinculando à chave _key_.
@@ -84,11 +84,11 @@ Adiciona os dados do cliente, vinculando à chave _key_.
 | ---- | ---- | ----------- |
 | key | bytes32 | A chave |
 | _taxId | uint256 | O CPF do cliente |
+| _cnpj8 | uint256 | O Cnpj8 do participante |
 | _bankNumber | uint256 | O ID do participante |
 | _account | uint256 | A conta do cliente |
 | _branch | uint256 | A agência do cliente |
 | _wallet | address | A carteira do cliente |
-| _cnpj8 | uint256 | O Cnpj8 do participante |
 
 ### getWallet
 
