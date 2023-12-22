@@ -49,6 +49,11 @@
             },
             {
                 "internalType": "uint256",
+                "name": "_cnpj8",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
                 "name": "_bankNumber",
                 "type": "uint256"
             },
@@ -66,11 +71,6 @@
                 "internalType": "address",
                 "name": "_wallet",
                 "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_cnpj8",
-                "type": "uint256"
             }
         ],
         "name": "addAccount",
