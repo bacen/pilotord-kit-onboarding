@@ -75,7 +75,8 @@ O método a ser invocado para a inserção de dados é o `addAccount`, que tem o
 * Código do participante;
 * Conta do cliente fictício;
 * Agência do cliente fictício;
-* Carteira do cliente fictício.
+* Carteira do cliente fictício;
+* O Cnpj8 do participante;
 
 Ao iniciar uma transferência o participante poderá recuperar a carteira do destinatário através de consulta ao método `getWallet`.
 
