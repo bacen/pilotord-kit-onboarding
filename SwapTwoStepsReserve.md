@@ -9,10 +9,10 @@ A troca destrói Real Tokenizado do cliente pagador, transfere Real Digital do p
 A operação de _swap_ implementada neste contrato é realizada em duas transações: uma de proposta e outra de aceite.
 
 Este contrato parte da premissa que o participante pagador já aprovou a movimentação
-de Real Digital pelo contrato usando o método _approve_ do ERC20
+de Real Digital e Real Tokenizado pelo contrato usando o método _approve_ do ERC20.
 
 A diferença desse contrato para o _SwapTwoSteps_ é que neste o Real Digital fica em 
-posse do contrato até o _swap_ ser concluído.
+posse do contrato de _swap_ até a operação ser concluída ou cancelada.
 
 ### CBDC
 
@@ -59,7 +59,7 @@ _Mapping_ de propostas de _swap_.
 ### SwapStarted
 
 ```solidity
-event SwapStarted(uint256 proposalId, uint256 senderNumber, uint256 receiverNumber, address sender, address receiver, uint256 amount)
+event SwapStarted(uint256 indexed proposalId, uint256 indexed senderNumber, uint256 indexed receiverNumber, address sender, address receiver, uint256 amount)
 ```
 
 Evento de início do _swap_.
@@ -78,7 +78,7 @@ Evento de início do _swap_.
 ### SwapExecuted
 
 ```solidity
-event SwapExecuted(uint256 proposalId, uint256 senderNumber, uint256 receiverNumber, address sender, address receiver, uint256 amount)
+event SwapExecuted(uint256 indexed proposalId, uint256 indexed senderNumber, uint256 indexed receiverNumber, address sender, address receiver, uint256 amount)
 ```
 
 Evento de _swap_ executado.
@@ -97,7 +97,7 @@ Evento de _swap_ executado.
 ### SwapCancelled
 
 ```solidity
-event SwapCancelled(uint256 proposalId, string reason)
+event SwapCancelled(uint256 indexed proposalId, string reason)
 ```
 
 Evento de _swap_ cancelado.
@@ -112,7 +112,7 @@ Evento de _swap_ cancelado.
 ### ExpiredProposal
 
 ```solidity
-event ExpiredProposal(uint256 proposalId)
+event ExpiredProposal(uint256 indexed proposalId)
 ```
 
 Evento de proposta expirada. A proposta expira em 1 minuto.
@@ -126,7 +126,7 @@ Evento de proposta expirada. A proposta expira em 1 minuto.
 ### constructor
 
 ```solidity
-constructor(contract RealDigital _CBDC) public
+constructor(address _admin, address _authority, contract RealDigital _CBDC) public
 ```
 
 Construtor
@@ -135,6 +135,8 @@ Construtor
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
+| _admin | address | Administrador do contrato, pode trocar a autoridade do contrato caso seja necessário |
+| _authority | address | Autoridade do contrato, pode fazer todas as operações com o token |
 | _CBDC | contract RealDigital | Endereço do contrato do Real Digital |
 
 ### startSwap
@@ -143,7 +145,7 @@ Construtor
 function startSwap(contract RealTokenizado tokenSender, contract RealTokenizado tokenReceiver, address receiver, uint256 amount) public
 ```
 
-Cria a proposta de _swap_.
+Cria a proposta de _swap_ e transfere _amount_ Real Digital e Real Tokenizado para o contrato.
 
 #### Parameters
 
@@ -160,7 +162,7 @@ Cria a proposta de _swap_.
 function executeSwap(uint256 proposalId) public
 ```
 
-Aceita a proposta de _swap_, executável apenas pelo recebedor.
+Aceita a proposta de _swap_, executável apenas pelo recebedor. Transfere _amount_ Real Digital para a carteira reserva da instituição recebedora, queima _amount_ Real Tokenizado da instituição pagadora e executa _mint_ de _amount_ Real Tokenizado para o cliente da instituição recebedora.
 
 #### Parameters
 
@@ -174,7 +176,7 @@ Aceita a proposta de _swap_, executável apenas pelo recebedor.
 function cancelSwap(uint256 proposalId, string reason) public
 ```
 
-Cancela a proposta. Pode ser executada tanto pelo pagador quanto pelo recebedor.
+Cancela a proposta. Pode ser executada tanto pelo pagador quanto pelo recebedor. Transfere de volta para o pagador _amount_ Real Digital e Real Tokenizado.
 
 #### Parameters
 
