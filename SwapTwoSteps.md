@@ -123,7 +123,7 @@ Evento de proposta expirada. A proposta expira em 1 minuto.
 ### constructor
 
 ```solidity
-constructor(contract RealDigital _CBDC, address _authority, address _admin) public
+constructor(address _admin, address _authority, contract RealDigital _CBDC) public
 ```
 
 Construtor
@@ -132,9 +132,9 @@ Construtor
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| _CBDC | contract RealDigital | Endereço do contrato do Real Digital |
-| _authority | address | Autoridade do contrato, pode fazer todas as operações com o contrato |
 | _admin | address | Administrador do contrato, pode trocar a autoridade do contrato caso seja necessário |
+| _authority | address | Autoridade do contrato, pode fazer todas as operações com o token |
+| _CBDC | contract RealDigital | Endereço do contrato do Real Digital |
 
 ### startSwap
 
