@@ -8,9 +8,9 @@ A troca destrói Real Tokenizado do cliente pagador,
 transfere Real Digital do participante pagador para o participante recebedor
 e emite Real Tokenizado para o cliente recebedor.
 
-Todos os passos dessa operação de _swap_ são realizados em apenas uma transação.
+Todos os passos dessa operação de _swap_ são realizados em apenas uma transação, disparada pelo pagador.
 
-Este contrato parte da premissa que o participante pagador já aprovou a movimentação
+Este contrato parte da premissa que o participantes já aprovaram a movimentação
 de Real Digital e Real Tokenizado pelo contrato de _swap_ usando o método _approve_ do ERC20.
 
 
@@ -44,7 +44,7 @@ Evento de _swap_ executado.
 ### constructor
 
 ```solidity
-constructor(contract RealDigital _CBDC, address _authority, address _admin) public
+constructor(address _admin, address _authority, contract RealDigital _CBDC) public
 ```
 
 Constrói uma instância do contrato e armazena o endereço do contrato do Real Digital.
@@ -53,9 +53,9 @@ Constrói uma instância do contrato e armazena o endereço do contrato do Real 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| _CBDC | contract RealDigital | Endereço do contrato do Real Digital |
-| _authority | address | Autoridade do contrato, pode fazer todas as operações com o contrato |
 | _admin | address | Administrador do contrato, pode trocar a autoridade do contrato caso seja necessário |
+| _authority | address | Autoridade do contrato, pode fazer todas as operações com o token |
+| _CBDC | contract RealDigital | Endereço do contrato do Real Digital |
 
 
 
