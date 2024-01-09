@@ -11,8 +11,8 @@ A operação de _swap_ implementada neste contrato é realizada em duas transaç
 Este contrato parte da premissa que o participante pagador já aprovou a movimentação
 de Real Digital e Real Tokenizado pelo contrato usando o método _approve_ do ERC20.
 
-A diferença desse contrato para o _SwapTwoSteps_ é que neste o Real Digital e Real Tokenizado ficam em 
-posse do contrato até o _swap_ ser concluído.
+A diferença desse contrato para o _SwapTwoSteps_ é que neste o Real Digital fica em 
+posse do contrato de _swap_ até a operação ser concluída ou cancelada.
 
 ### CBDC
 
