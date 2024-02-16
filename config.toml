@@ -21,9 +21,10 @@ nat-method="NONE"
 min-gas-price=0
 
 # Transaction Pool
-# tx-pool-retention-hours=999
-# tx-pool-limit-by-account-percentage=1
-# tx-pool-max-size=20000
+tx-pool="sequenced"   
+tx-pool-retention-hours=1   
+tx-pool-limit-by-account-percentage=1   
+tx-pool-max-size=18000
 
 # P2P network
 p2p-enabled=true
