@@ -22,7 +22,7 @@ Este contrato foi desenvolvido usando como base o padrão [ERC20](https://ethere
 * Valor definido com 2 casas decimais
 * Apenas instituições detentoras de Conta Reservas ou Conta de Liquidação e o Tesouro Nacional poderão ter Real Digital em suas carteiras.
 * Cada participante deve mandar ao Banco Central do Brasil o endereço da sua carteira principal para o cadastro. Esta carteira será a carteira _default_ do participante e poderá ser posteriormente alterada através do contrato [RealDigitalDefaultAccount](./RealDigitalDefaultAccount.md).
-* Após o cadastro inicial, o próprio participante poderá habilitar outras carteiras a receber Real Digital através do contrato [RealDigitalEnableAccount](./RealDigitalDefaultAccount.md).
+* Após o cadastro inicial, o próprio participante poderá habilitar outras carteiras a receber Real Digital através do contrato [RealDigitalEnableAccount](./RealDigitalEnableAccount.md).
 * A solicitação de emissão de Real Digital será feita mediante chamada da carteira ao contrato [STR](./abi/STR.md)
 
 ### [Real Digital Default Account](./RealDigitalDefaultAccount.md)
