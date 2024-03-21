@@ -1,0 +1,82 @@
+version: "3.3"
+services:
+  zokrates:
+      volumes:
+          - ./proving-files:/app/output
+          - ./circuits:/app/circuits
+          - ./orchestration/common/write-vk.mjs:/app/write-vk.mjs
+          - ./orchestration/common/db:/app/orchestration/common/db
+      container_name: zokrates
+      networks:
+          - starlight
+      image: ghcr.io/eyblockchain/zokrates-worker-updated:latest
+  timber-mongo:
+      volumes:
+          - timber-mongo:/data/db
+      environment:
+          - MONGO_INITDB_ROOT_USERNAME=admin
+          - MONGO_INITDB_ROOT_PASSWORD=admin
+          - MONGO_INITDB_DATABASE=merkle_tree
+      container_name: timber-mongo
+      networks:
+          - starlight
+      image: starlight-mongo
+  starlight-mongo:
+      volumes:
+          - zapp-mongo:/data/db
+      environment:
+          - MONGO_INITDB_ROOT_USERNAME=admin
+          - MONGO_INITDB_ROOT_PASSWORD=admin
+          - MONGO_INITDB_DATABASE=zapp_db
+      container_name: zapp-mongo
+      networks:
+          - starlight
+      image: starlight-mongo
+  timber:
+      environment:
+          - RPC_URL=ws://[HOST]:[PORT]
+          - LOG_LEVEL=debug
+          - DB_URL=mongodb://admin:admin@timber-mongo:27017
+          - HASH_TYPE=mimc
+          - UNIQUE_LEAVES=true
+          - ESCROW_SHIELD_ADDRESS=0xf3cBfC5c2d71CdB931B004b3B5Ca4ABEdbA3Cd43
+      ports:
+          - 3100:80
+      volumes:
+          - ./build/contracts:/app/build/contracts
+          - ./config_timber.js:/app/config/default.js
+      networks:
+          - starlight
+      container_name: timber
+      entrypoint: "sleep 20 &&  npm start"
+      image: timber
+      depends_on:
+        - timber-mongo
+  zapp:
+      ports:
+          - 3000:3000
+      environment:
+          - ESCROW_SHIELD_ADDRESS=0xf3cBfC5c2d71CdB931B004b3B5Ca4ABEdbA3Cd43
+          - ERC20_ADDRESS=0x3A34C530700E3835794eaE04d2a4F22Ce750eF7e
+          - ZOKRATES_URL=http://zokrates
+          - TIMBER_URL=http://timber
+          - RPC_URL=ws://[HOST]:[PORT]
+          - DEFAULT_ACCOUNT=[ADDRESS_ACCOUNT]
+          - KEY=[PK]
+          - ADMIN_ACCOUNT=[ADDRESS_ACCOUNT]
+          - ADMIN_KEY=[PK]
+          - MONGO_URL=mongodb://admin:admin@zapp-mongo:27017
+      networks:
+          - starlight
+      container_name: zapp
+      image: zapp-escrow
+      depends_on:
+        - timber
+        - starlight-mongo
+        - zokrates
+networks:
+  starlight:
+    driver: bridge
+volumes:
+  timber-mongo:
+  zapp-mongo:

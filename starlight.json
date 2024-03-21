@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "e748ace4-f56a-462c-bf2e-21550962e0df",
+		"name": "starlight (sender)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all commitments - sender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);",
+							"let balance = 0;",
+							"for (let c of jsonData.commitments) {",
+							"    if (c.preimage.stateVarId == '0x2d088cb1d5c9cdb32a54cdf1896b556e59e43630d963bcfaaeda58af7ef513c0' && !c.isNullified) {",
+							"        balance += Number(c.preimage.value);",
+							"    }",
+							"}",
+							"",
+							"console.log('Current balance: ', balance);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host_sender}}/getAllCommitments",
+					"host": [
+						"{{host_sender}}"
+					],
+					"path": [
+						"getAllCommitments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mint",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_sender}}/mint",
+					"host": [
+						"{{host_sender}}"
+					],
+					"path": [
+						"mint"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "balanceOf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_sender}}/balanceOf?account={{account_sender}}",
+					"host": [
+						"{{host_sender}}"
+					],
+					"path": [
+						"balanceOf"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "{{account_sender}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approve",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"spender\": \"{{EscrowShield}}\",\n    \"amount\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_sender}}/approve",
+					"host": [
+						"{{host_sender}}"
+					],
+					"path": [
+						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 12\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_sender}}/deposit",
+					"host": [
+						"{{host_sender}}"
+					],
+					"path": [
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"recipient\": \"{{account_receiver}}\",\n    \"amount\": 25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_sender}}/transfer",
+					"host": [
+						"{{host_sender}}"
+					],
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "withdraw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_sender}}/withdraw",
+					"host": [
+						"{{host_sender}}"
+					],
+					"path": [
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
