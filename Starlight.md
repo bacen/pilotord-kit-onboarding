@@ -103,7 +103,7 @@ O docker-compose fornecido cria volumes para ambos os bancos de dados. Recomenda
 * Dentro do Postman, crie um ambiente e defina as seguintes variáveis:
 * * `host`: `http://localhost:3000` (servidor onde está rodando o cliente, o valor default é `http://localhost:3000`)
 * * `EscrowShield`: `0xf3cBfC5c2d71CdB931B004b3B5Ca4ABEdbA3Cd43` (endereço do contrato de escrow na rede)
-* * `account`: `` (preencher com conta Etherem do participante que será utilizada para o teste)
+* * `account`: `` (preencher com conta Ethereum do participante que será utilizada para o teste)
 
 #### 3 - Permissões contratos
 
@@ -112,11 +112,11 @@ Foi realizado o deploy do contrato inteligente denominado **EscrowShield** respo
 
 ### APIs
 
-A interação com os testes da solução Starlight ocorrerá através de APIs configuradas de acordo com a seção [Configurar scripts](#-2---Configurar-scripts-(Postman)). O primeiro passo deve ser o depósito no contrato **EscrowShield**. Após o depósito, transferências, saques e consultas ao *commitements* podem ser realizadas através das APIs conforme detalhado a seguir:
+A interação com os testes da solução Starlight ocorrerá através de APIs configuradas de acordo com a seção [Configurar scripts](#-2---Configurar-scripts-(Postman)). O primeiro passo deve ser o depósito no contrato **EscrowShield**. Após o depósito, transferências, saques e consultas ao *commitments* podem ser realizadas através das APIs conforme detalhado a seguir:
 
 #### Realizar depósito
 
-O operação de depósito consiste na transferência de um valor específico da carteira Ethereum de Real Digital para o contrato EscrowShield. Para que o depósito seja efetivado é necessário que a carteira possua saldo suficiente e que o **approve** tenha sido realizado conforme as diretreizes apresentadas em [Premissões de contratos](#-3---Permissões-contratos). 
+O operação de depósito consiste na transferência de um valor específico da carteira Ethereum de Real Digital para o contrato EscrowShield. Para que o depósito seja efetivado é necessário que a carteira possua saldo suficiente e que o **approve** tenha sido realizado conforme as diretrizes apresentadas em [Premissões de contratos](#-3---Permissões-contratos). 
 Ao realizar a chamada à API de depósito, um novo *commitment* com o valor depositado será criado no banco de dados da sua aplicação ZApp local.
 
 #### Transferir Real Digital
