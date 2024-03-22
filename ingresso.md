@@ -69,28 +69,15 @@ Importante que o arquivo genesis.json esteja sincronizado para se conectar à re
 Está disponível neste kit-onboarding um template do arquivo [config.toml](config.toml) para ser utilizado na configuração do nó do participante. Atentar para os parâmetros que devem ser customizados conforme o seu ambiente (`p2p-host`, `p2p-port` e `nat-method`). Consulte a [documentação](https://besu.hyperledger.org/public-networks/how-to/connect/specify-nat/#kubernetes) do Besu sobre como configurar esses parâmetros.
 
 
-### Discovery (Bootnode)
+### Conexão do nó com a rede Drex
 
-O _discovery_ será efetuado de forma automática usando bootnodes. Através deles serão disponibilizados os endereços (enodes) dos participantes da rede para que o nó faça automaticamente a conexão com cada _peer_. Foram disponibilizados 4 bootnodes na rede para atender os requisitos mínimos de resiliência e disponibilidade.
+A interconexão do nó Besu com a rede Drex utiliza o modelo de "Static nodes" com o mecanismo de auto-discovery desabilitado, conforme definido na [documentação](https://besu.hyperledger.org/public-networks/how-to/connect/static-nodes) oficial do produto.
 
-Os quatro endereços (enodes) abaixo devem ser configurados no parâmetro (BESU_BOOTNODES), separados por vírgula, no arquivo de variáveis de ambiente do container BESU.
+Dessa forma as conexões são estabelecidas com destinatários pré-definidos no arquivo static-nodes.json.
 
-    * Os enodes dos Bootnodes:
-        **validator-bcb-1**
-            enode://6402a9957982b006576a9c52d259b1b0959ddb69c0a9661d3e605ca4f6efd567880ea42053a61c01524d64c66d4a419b097f400a16305e142b7350e67b803bf9@200.218.66.38:30004
+Está disponível neste kit-onboarding um template do arquivo [static-nodes.json](static-nodes.json) com o mapeamento dos enodes aos quais o nó do participante deve se conectar.
 
-        **validator-bcb-2**
-            enode://b6db3da7f706efaba257a48a313eabfcc0e9431111d773bad441f99534faaa0d2802b749d34246d87e6c7efb85e743c302a3a8085609a5863cae9e4da3b44124@200.218.66.36:30005
 
-        **validator-selic-01**
-            enode://fbf06435ebfb61113341de8b68156d86534bd8be297a0e567b4858ca5de7ac9f0a8aceda3abcf80815a3b0cd08cbc9b302ae091f538e1c44ed7a8823b76af0b8@200.218.66.113:30303
-
-        **validator-selic-02**
-            enode://36af70abfecd5a9277e4825b69a835de34c1c225cfce45ad14ad95f61070eb20c94ab715ab15d040a5e5213c37c5fe873a4da86eaa87b9c9245f656ca967e95a@200.218.66.85:30303
-        
-
-Exemplo: 
-    BESU_BOOTNODES="enode://bootnode1@host:port,enode://bootnode2@host:port,enode://bootnode3@host:port,enode://bootnode4@host:port"
 
 ## Permissionamento do participante na rede do piloto
 

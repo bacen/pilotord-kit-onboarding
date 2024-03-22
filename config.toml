@@ -28,7 +28,8 @@ tx-pool-max-size=2500
 
 # P2P network
 p2p-enabled=true
-discovery-enabled=true
+discovery-enabled=false
+static-nodes-file="/caminho/para/o/arquivo/static-nodes.json"
 #p2p-host="0.0.0.0"
 p2p-port=30303
 max-peers=25
