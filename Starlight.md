@@ -61,7 +61,7 @@ Build da imagem do **Zapp Escrow**
 
 Construção do componente **Timber**
 * git clone https://github.com/EYBlockchain/timber
-* git checkout starlight/testnet (**IMPORTANTE:** usar essa branch)
+* git checkout multiple-contracts (**IMPORTANTE:** usar essa branch)
 * cd merkle-tree
 
 Build da imagem do **Timber** que controla o merkle tree
