@@ -48,7 +48,6 @@ services:
       networks:
           - starlight
       container_name: timber
-      entrypoint: "sleep 20 &&  npm start"
       image: timber
       depends_on:
         - timber-mongo
@@ -74,8 +73,6 @@ services:
         - timber
         - starlight-mongo
         - zokrates
-      volumes:
-        - ./db:/app/orchestration/common/db
 networks:
   starlight:
     driver: bridge
