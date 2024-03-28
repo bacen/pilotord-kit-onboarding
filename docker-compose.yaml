@@ -74,6 +74,8 @@ services:
         - timber
         - starlight-mongo
         - zokrates
+      volumes:
+        - ./db:/app/orchestration/common/db
 networks:
   starlight:
     driver: bridge
