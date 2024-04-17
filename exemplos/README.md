@@ -42,4 +42,7 @@ Operação 1052: Registro de operação de compra e venda entre um participante 
 [Exemplo 12](example12.ts):
 Operação 1052: Registro de operação de compra e venda entre dois clientes de participantes distintos.
 
+[Exemplo 13](walletsCheckingFlow.ts):
+TPFt: Verificar se a carteira está com as permissões necessárias para realizar as operações envolvendo TPFt.
+
 [<<< Voltar](../README.md)

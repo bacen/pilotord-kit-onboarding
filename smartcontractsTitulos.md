@@ -10,7 +10,7 @@ Serão fornecidos aos participantes do piloto a [ABI](https://docs.soliditylang.
 
 
 ## Smart Contracts
-Os contratos das operações (liquidação de oferta pública e compra e venda) que envolvem TPFt foram desenvolvidos usando como base o padrão [ERC1155](https://ethereum.org/pt/developers/docs/standards/tokens/erc-1155/), com a adição de [funções específicas de controle de acesso](./TPFtAccessControl.md). Somente participantes autorizados podem operar na rede do piloto.
+Os contratos das operações (liquidação de oferta pública e compra e venda) que envolvem TPFt foram desenvolvidos usando como base o padrão [ERC1155](https://ethereum.org/pt/developers/docs/standards/tokens/erc-1155/), com a adição de [funções específicas de controle de acesso](./TPFtAccessControl.md). Somente participantes autorizados podem operar na rede do piloto, e é necessário realizar [habilitações](habilitacoes.md) para efetuar as operações com TPFt.
 
 
 Uma operação será identificada unicamente pelo operationId informado pelo participante. Este número será único na rede e sugere-se que seja utilizado o número da faixa do participante concatenado com a data vigente. Este formato não será validado e o operationId será utilizado para realizar a correspondência de uma operação de duplo comando.
@@ -26,11 +26,11 @@ O TPFt está definido no contrato chamado TPFt que implementa a interface [ITPFt
 - Somente carteiras autorizadas podem receber TPFt.
 - Os tokens disponibilizados seguirão as [características dos Títulos Públicos Federais](https://www.bcb.gov.br/content/estabilidadefinanceira/selic/CaracteristicaTitulos.pdf).
 
-### Liquidação de oferta pública - [Operação 1002](./ITPFtOperation1002.md)
+### Liquidação de oferta pública - [Operação 1002](./tpft/operation/TPFtOperation1002/ITPFtOperation1002.md)
 
 A liquidação de oferta pública está definida no contrato chamado TPFtOperation1002 que implementa a interface [ITPFtOperation1002](./abi/ITPFtOperation1002.json). O contrato permite transferir quantidades inteiras de TPFt da carteira _default_ da STN para a carteira _default_ de um participante cadastrado por meio do método `auctionPlacement`. A liquidação da operação é realizada com a entrega contra pagamento (DvP) e somente o Bacen pode transmitir o comando cedente dessa operação.
 
-### Compra e venda - [Operação 1052](./ITPFtOperation1052.md)
+### Compra e venda - [Operação 1052](./tpft/operation/TPFtOperation1052/ITPFtOperation1052.md)
 
 A operação de compra e venda entre participantes e/ou clientes está definida no contrato chamado TPFtOperation1052 que implementa a interface [ITPFtOperation1052](./abi/ITPFtOperation1052.json). O contrato permite transferir quantidades fracionárias de TPFt entre carteiras de participantes e/ou clientes cadastrados por meio do método `trade`. A liquidação da operação é executada com a entrega contra pagamento (DvP).
 
@@ -38,4 +38,20 @@ A operação de compra e venda entre participantes e/ou clientes está definida 
 
 A operação de resgate está definida no contrato de uso exclusivo do Banco Central chamado TPFtOperation1012. O contrato permite que o Tesouro Nacional realize o pagamento de resgate na data do vencimento do TPFt. A liquidação da operação é executada pagando Real Digital para o participante e emitindo Real Tokenizado para o cliente do participante. Não foi implementada a baixa de TPFt.
 
-[<<< Voltar](README.md)
+### **Importante**
+
+**Habilitação de carteiras para TPFt**
+
+A habilitação das carteiras de participantes e clientes nas operações dos Títulos Públicos Federais tokenizados (TPFt) é diferente da habilitação das carteiras de participantes e clientes no Real Digital. Para a carteira do participante ou do cliente realizar operações no TPFt, é preciso que o participante solicite a habilitação junto ao BACEN.
+
+**Ações quando houver novo deploy de TPFt**
+
+Sempre que houver deploy de TPFt na rede blockchain todas as habilitações e permissões das carteiras – realizadas antes do deploy – se tornam nulas. Os participantes precisam solicitar ao BACEN as habilitações de suas respectivas carteiras, como também executar as autorizações necessárias para o DvP.
+
+**Identificação de clientes para o TPFt**
+
+A identificação das carteiras de clientes e participantes nos contratos dos Títulos Públicos Federais tokenizados (TPFt) é feita da seguinte forma: 
+
+1. Carteira de cliente é identificada no cadastro do Key Dictionary. Neste caso, o pagamento do resgate é feito em Real Tokenizado;
+
+2. Carteira do participante é identificada no cadastro do Real Digital e inexistente no Key Dictionary. Neste caso, o pagamento do resgate é feito em Real Digital.
