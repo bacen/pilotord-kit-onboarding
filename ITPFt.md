@@ -4,21 +4,6 @@
 
 Interface responsável pela criação e emissão de Título Público Federal tokenizado (TPFt).
 
-### FrozenBalance
-
-```solidity
-event FrozenBalance(address from, uint256 balance)
-```
-
-Evento emitido quando o saldo de uma carteira é congelado.
-
-#### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| from | address | Endereço da carteira que teve o saldo congelado. |
-| balance | uint256 | Saldo de ativo congelado. |
-
 ### TPFtData
 
 ```solidity
@@ -45,35 +30,19 @@ error OnlyDirectPlacementContract()
 
 Erro lançado porque a ação só pode ser realizada pelo contrato de colocação direta de TPFts.
 
-### createTPFt
+### name
 
 ```solidity
-function createTPFt(struct ITPFt.TPFtData tpftData) external
+function name() external view returns (string)
 ```
 
-Função para criar um novo TPFt.
+Função externa que retorna o nome do token.
 
-#### Parameters
+#### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
-
-### mint
-
-```solidity
-function mint(address receiverAddress, struct ITPFt.TPFtData tpftData, uint256 tpftAmount) external
-```
-
-Função para emitir TPFt.
-
-#### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| receiverAddress | address | Endereço do cessionário da operação. Nesta operação sempre será o endereço da STN. |
-| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
-| tpftAmount | uint256 | Quantidade de TPFt a ser emitida. |
+| [0] | string | Retorna uma string contendo o nome do token. |
 
 ### getTPFtId
 
@@ -93,7 +62,54 @@ Função para obter o ID do título.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | Retorna o ID do título.  Se não existir um TPFt com as informações fornecidas, o valor retornado será 0. |
+| [0] | uint256 | Retorna o ID do título. 
+ Se não existir um TPFt com as informações fornecidas, o valor retornado será 0. |
+
+### createTPFt
+
+```solidity
+function createTPFt(struct ITPFt.TPFtData tpftData) external
+```
+
+Função para criar um novo TPFt.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
+
+### mint
+
+```solidity
+function mint(address receiverAddress, uint256 tpftId, uint256 tpftAmount) external
+```
+
+Função para emitir TPFt.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiverAddress | address | Endereço do cessionário da operação. Nesta operação sempre será o endereço da STN. |
+| tpftId | uint256 | Id do TPFt |
+| tpftAmount | uint256 | Quantidade de TPFt a ser emitida. |
+
+### mint
+
+```solidity
+function mint(address receiverAddress, struct ITPFt.TPFtData tpftData, uint256 tpftAmount) external
+```
+
+Função para emitir TPFt.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receiverAddress | address | Endereço do cessionário da operação. Nesta operação sempre será o endereço da STN. |
+| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
+| tpftAmount | uint256 | Quantidade de TPFt a ser emitida. |
 
 ### directPlacement
 
@@ -111,6 +127,29 @@ Função para realizar uma operação de colocação direta de TPFt.
 | to | address | Endereço da carteira de destino da operação de colocação direta. |
 | tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
 | tpftAmount | uint256 | Quantidade de TPFt a ser enviada na operação de colocação direta. |
+
+### balanceOf
+
+```solidity
+function balanceOf(address wallet, uint256 tpftId) external view returns (uint256)
+```
+
+Função externa que consulta o saldo de um título vencimento (TPFt) na carteira informada.
+
+
+### decimals
+
+```solidity
+function decimals() external view returns (uint256)
+```
+
+Função externa para obter o número de casas decimais do TPFt.
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | Número de casas decimais que para o TPFt será de 2. |
 
 ### increaseFrozenBalance
 

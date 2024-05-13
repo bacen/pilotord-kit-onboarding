@@ -26,11 +26,11 @@ O TPFt está definido no contrato chamado TPFt que implementa a interface [ITPFt
 - Somente carteiras autorizadas podem receber TPFt.
 - Os tokens disponibilizados seguirão as [características dos Títulos Públicos Federais](https://www.bcb.gov.br/content/estabilidadefinanceira/selic/CaracteristicaTitulos.pdf).
 
-### Liquidação de oferta pública - [Operação 1002](./tpft/operation/TPFtOperation1002/ITPFtOperation1002.md)
+### Liquidação de oferta pública - [Operação 1002](./ITPFtOperation1002.md)
 
 A liquidação de oferta pública está definida no contrato chamado TPFtOperation1002 que implementa a interface [ITPFtOperation1002](./abi/ITPFtOperation1002.json). O contrato permite transferir quantidades inteiras de TPFt da carteira _default_ da STN para a carteira _default_ de um participante cadastrado por meio do método `auctionPlacement`. A liquidação da operação é realizada com a entrega contra pagamento (DvP) e somente o Bacen pode transmitir o comando cedente dessa operação.
 
-### Compra e venda - [Operação 1052](./tpft/operation/TPFtOperation1052/ITPFtOperation1052.md)
+### Compra e venda - [Operação 1052](./ITPFtOperation1052.md)
 
 A operação de compra e venda entre participantes e/ou clientes está definida no contrato chamado TPFtOperation1052 que implementa a interface [ITPFtOperation1052](./abi/ITPFtOperation1052.json). O contrato permite transferir quantidades fracionárias de TPFt entre carteiras de participantes e/ou clientes cadastrados por meio do método `trade`. A liquidação da operação é executada com a entrega contra pagamento (DvP).
 
@@ -43,10 +43,6 @@ A operação de resgate está definida no contrato de uso exclusivo do Banco Cen
 **Habilitação de carteiras para TPFt**
 
 A habilitação das carteiras de participantes e clientes nas operações dos Títulos Públicos Federais tokenizados (TPFt) é diferente da habilitação das carteiras de participantes e clientes no Real Digital. Para a carteira do participante ou do cliente realizar operações no TPFt, é preciso que o participante solicite a habilitação junto ao BACEN.
-
-**Ações quando houver novo deploy de TPFt**
-
-Sempre que houver deploy de TPFt na rede blockchain todas as habilitações e permissões das carteiras – realizadas antes do deploy – se tornam nulas. Os participantes precisam solicitar ao BACEN as habilitações de suas respectivas carteiras, como também executar as autorizações necessárias para o DvP.
 
 **Identificação de clientes para o TPFt**
 
