@@ -28,11 +28,11 @@ O TPFt está definido no contrato chamado TPFt que implementa a interface [ITPFt
 
 ### Liquidação de oferta pública - [Operação 1002](./ITPFtOperation1002.md)
 
-A liquidação de oferta pública está definida no contrato chamado TPFtOperation1002 que implementa a interface [ITPFtOperation1002](./abi/ITPFtOperation1002.json). O contrato permite transferir quantidades inteiras de TPFt da carteira _default_ da STN para a carteira _default_ de um participante cadastrado por meio do método `auctionPlacement`. A liquidação da operação é realizada com a entrega contra pagamento (DvP) e somente o Bacen pode transmitir o comando cedente dessa operação.
+A liquidação de oferta pública está definida no contrato chamado TPFtOperation1002 que implementa a interface [ITPFtOperation1002](./abi/ITPFtOperation1002.json). O contrato permite transferir quantidades inteiras de TPFt da carteira _default_ da STN para a carteira _default_ de um participante cadastrado por meio do método `auctionPlacement`. A liquidação da operação é realizada com a entrega contra pagamento (DvP) e somente o Bacen pode transmitir o comando cedente dessa operação. Tanto o Bacen/STN quanto o Participante, na posição de cedente e cessionário, podem cancelar operações pendentes, desde que o `operationId` exista, o status da operação seja "LAN" ou "CON", e apenas a parte que iniciou o processo de liquidação de oferta pública pode solicitar o cancelamento. 
 
 ### Compra e venda - [Operação 1052](./ITPFtOperation1052.md)
 
-A operação de compra e venda entre participantes e/ou clientes está definida no contrato chamado TPFtOperation1052 que implementa a interface [ITPFtOperation1052](./abi/ITPFtOperation1052.json). O contrato permite transferir quantidades fracionárias de TPFt entre carteiras de participantes e/ou clientes cadastrados por meio do método `trade`. A liquidação da operação é executada com a entrega contra pagamento (DvP).
+A operação de compra e venda entre participantes e/ou clientes está definida no contrato chamado TPFtOperation1052 que implementa a interface [ITPFtOperation1052](./abi/ITPFtOperation1052.json). O contrato permite transferir quantidades fracionárias de TPFt entre carteiras de participantes e/ou clientes cadastrados por meio do método `trade`. A liquidação da operação é executada com a entrega contra pagamento (DvP). As partes envolvidas, sejam participantes ou clientes, na posição de cedente e cessionário, podem cancelar operações pendentes, desde que o `operationId` exista, o status da operação seja "LAN" ou "CON", e apenas a parte que iniciou o processo de liquidação da operação de compra e venda possa solicitar o cancelamento. 
 
 ### Resgate - Operação 1012
 

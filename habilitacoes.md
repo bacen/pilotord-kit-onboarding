@@ -1,10 +1,10 @@
 ## Habilitações
 
-Para executar as operações envolvendo Títulos Públicos Federais tokenizados (TPFt), é necessário que os participantes efetuem as seguintes habilitações para o contrato TPFtDvP realizar transações com os ativos de sua carteira:
+Para executar as operações de liquidação de oferta pública (`TPFtOperation1002`) e liquidação de compra e venda (`TPFtOperation1052`) envolvendo Títulos Públicos Federais tokenizados (TPFt), é necessário que os participantes efetuem as seguintes habilitações para o contrato `TPFtDvP` realizar transações com os ativos de sua carteira:
 
-- <span style="text-decoration: underline;">TPFt</span>: deve ser autorizada na carteira do participante ou cliente a manipulação do saldo de TPFt através do método `setApprovalForAll`, herdado do padrão ERC-1155, do contrato TPFt;
+- <span style="text-decoration: underline;">TPFt</span>: deve ser autorizada na carteira do participante ou cliente a manipulação do saldo de TPFt através do método `setApprovalForAll`, herdado do padrão ERC-1155, do contrato TPFt. Esta autorização somente precisa ser feita quando houver deploy de um novo contrato  `TPFtDvP`;
 
-- <span style="text-decoration: underline;">RealDigital</span>: deve ser autorizada na carteira do participante uma quantia através do método `approve`, herdado do padrão ERC-20, do contrato RealDigital. Essa quantia poderá ser utilizada em mais de uma operação e é possível autorizar novos valores sempre que necessário; e
+- <span style="text-decoration: underline;">RealDigital</span>: deve ser autorizada na carteira do participante uma quantia através do método `approve`, herdado do padrão ERC-20, do contrato RealDigital. Essa quantia poderá ser utilizada em mais de uma operação e é possível autorizar novos valores sempre que necessário;
 
 - <span style="text-decoration: underline;">RealTokenizado</span>: deve ser autorizada na carteira do participante e do seu cliente uma quantia através do método `approve`, herdado do padrão ERC-20, do contrato RealTokenizado. Essa quantia poderá ser utilizada em mais de uma operação e é possível autorizar novos valores sempre que necessário;
 
@@ -81,10 +81,10 @@ O detalhamento das habilitações por operação está representado no quadro ab
 | **DESCRIÇÃO**                                  |
 |----------------------------------------------|
 | **realDigital/enableAccount:** habilitar a carteira para operar Real Digital. |
-| **realDigital/approve:** habilitar o contrato TPFtDvP a realizar transações com Real Digital pela carteira.                                         |
+| **realDigital/approve:** habilitar o contrato `TPFtDvP` a realizar transações com o valor de Real Digital aprovado pela carteira.                                         |
 | **tpft/enableAddress:** habilitar a carteira para operar TPFt. _*Somente o Bacen pode habilitar e o participante deve solicitar via e-mail._                                        |
-| **tpft/setApprovalForAll:** habilitar o contrato TPFtDvP a realizar transações com TPFt pela carteira.                                         |
+| **tpft/setApprovalForAll:** habilitar o contrato `TPFtDvP` a realizar transações com TPFt pela carteira.  _*Esta autorização somente precisa ser feita quando houver deploy de um novo contrato_ `TPFtDvP`.                                     |
 | **realTokenizado/:enderecoContrato/enableAccount:** habilitar a carteira para operar Real Tokenizado.                                        |
-| **realTokenizado/:enderecoContrato/approve:** habilitar o contrato TPFtDvP a realizar transações com Real Tokenizado pela carteira.                                        |
+| **realTokenizado/:enderecoContrato/approve:** habilitar o contrato `TPFtDvP` a realizar transações com o valor de Real Tokenizado aprovado pela carteira.                                        |
 
 [<<< Voltar](smartcontractsTitulos.md)

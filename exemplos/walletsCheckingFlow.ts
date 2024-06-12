@@ -1,4 +1,9 @@
 import { ethers } from "hardhat";
+import abiRealDigital from "../abi/RealDigital.json"
+import abiRealTokenizado from "../abi/RealTokenizado.json"
+import abiITPFt from "../abi/ITPFt.json"
+import abiAddressDiscovery from "../abi/AddressDiscovery.json";
+import abiKeyDictionary from "../abi/KeyDictionary.json";
 
 interface CheckAddress {
   name: string;
@@ -24,7 +29,7 @@ async function TPFtCheckApproves(wallets: CheckAddress[]) {
     .contractAddress;
   // Obtém contrato TPFt
   const tpftContract = await ethers.getContractAt(
-    "TPFt",
+    abiITPFt,
     TPFT_CONTRACT_ADDRESS
   );
 
@@ -72,7 +77,7 @@ async function RealDigitalCheck(wallets: CheckAddress[]) {
     .contractAddress;
   // Obtém contrato RealDigital
   const realDigitalContract = await ethers.getContractAt(
-    "RealDigital",
+    abiRealDigital,
     REAL_DIGITAL_ADDRESS
   );
 
@@ -116,7 +121,7 @@ async function RealTokenizadoCheck(
   for (const realTokenizado of realTokenizados) {
     // Obtém contrato do RealTokenizado
     const realTokenizadoContract = await ethers.getContractAt(
-      "RealTokenizado",
+      abiRealTokenizado,
       realTokenizado.publicAddress
     );
     for (const wallet of wallets) {
@@ -150,7 +155,7 @@ async function keyDictionaryCheck(wallets: CheckAddress[]) {
   ).contractAddress;
   // Obtém contrato KeyDictionary
   const keyDictionaryContract = await ethers.getContractAt(
-    "KeyDictionary",
+    abiKeyDictionary,
     KEY_DICTIONARY_ADDRESS
   );
   // Valor default do tipo bytes32 na DLT
@@ -201,7 +206,7 @@ async function keyDictionaryCheck(wallets: CheckAddress[]) {
 async function addressDiscoveryContract(key: string) {
   // Obtém o contrato AddressDiscovery
   const addressDiscoveryContract = await ethers.getContractAt(
-    "AddressDiscovery",
+    abiAddressDiscovery,
     ADDRESS_DISCOVERY_ADDRESS
   );
   // Endereço do contrato

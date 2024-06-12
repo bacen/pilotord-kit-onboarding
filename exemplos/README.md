@@ -45,4 +45,10 @@ Operação 1052: Registro de operação de compra e venda entre dois clientes de
 [Exemplo 13](walletsCheckingFlow.ts):
 TPFt: Verificar se a carteira está com as permissões necessárias para realizar as operações envolvendo TPFt.
 
+[Exemplo 14](example14.ts):
+Operação 1002: Cancelamento de liquidação de oferta pública.
+
+[Exemplo 15](example15.ts):
+Operação 1052: Cancelamento de operação de compra e venda entre participantes/clientes.
+
 [<<< Voltar](../README.md)
