@@ -1,0 +1,1082 @@
+{
+	"info": {
+		"_postman_id": "c504e52b-b0f6-4e55-9d51-57ca838ca42e",
+		"name": "SwapEscrow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "12508102"
+	},
+	"item": [
+		{
+			"name": "Utils (Timber)",
+			"item": [
+				{
+					"name": "/start",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contractName\": \"SwapShield\",\n    \"contractAddress\": \"{{swapShieldAddress}}\",\n    \"block\": \"56845758\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{bank_a_zapp}}/timber/start"
+					},
+					"response": []
+				},
+				{
+					"name": "/nodes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{bank_a_zapp}}/timber/nodes?contractName=SwapShield&contractAddress={{swapShieldAddress}}",
+							"host": [
+								"{{bank_a_zapp}}"
+							],
+							"path": [
+								"timber",
+								"nodes"
+							],
+							"query": [
+								{
+									"key": "contractName",
+									"value": "SwapShield"
+								},
+								{
+									"key": "contractAddress",
+									"value": "{{swapShieldAddress}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/metadata",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{bank_a_zapp}}/timber/metadata"
+					},
+					"response": []
+				},
+				{
+					"name": "/root",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bank_a_zapp}}/timber/root?contractName=SwapShield&contractAddress={{swapShieldAddress}}",
+							"host": [
+								"{{bank_a_zapp}}"
+							],
+							"path": [
+								"timber",
+								"root"
+							],
+							"query": [
+								{
+									"key": "contractName",
+									"value": "SwapShield"
+								},
+								{
+									"key": "contractAddress",
+									"value": "{{swapShieldAddress}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/leaves",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bank_a_zapp}}/timber/leaves?contractName=SwapShield&contractAddress={{swapShieldAddress}}",
+							"host": [
+								"{{bank_a_zapp}}"
+							],
+							"path": [
+								"timber",
+								"leaves"
+							],
+							"query": [
+								{
+									"key": "contractName",
+									"value": "SwapShield"
+								},
+								{
+									"key": "contractAddress",
+									"value": "{{swapShieldAddress}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "leaf/index",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bank_a_zapp}}/timber/leaf/index/:leafIndex?contractName=SwapShield&contractAddress={{swapShieldAddress}}",
+							"host": [
+								"{{bank_a_zapp}}"
+							],
+							"path": [
+								"timber",
+								"leaf",
+								"index",
+								":leafIndex"
+							],
+							"query": [
+								{
+									"key": "contractName",
+									"value": "SwapShield"
+								},
+								{
+									"key": "contractAddress",
+									"value": "{{swapShieldAddress}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "leafIndex",
+									"value": "16995525231791215896832921897492724443296096978238563860099070902077782616126"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "leaf/value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false,
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\": \"16995525231791215896832921897492724443296096978238563860099070902077782616126\",\n    \"contractAddress\": \"{{swapShieldAddress}}\",\n    \"contractName\": \"SwapShield\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{bank_a_zapp}}/leaf/value"
+					},
+					"response": []
+				},
+				{
+					"name": "/update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contractName\": \"SwapShield\",\n    \"contractAddress\": \"{{swapShieldAddress}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{bank_a_zapp}}/timber/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "depositErc20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\" : 200,\n\t\"erc20Address\" : \"{{erc_20_address}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/depositErc20"
+			},
+			"response": []
+		},
+		{
+			"name": "depositErc1155",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"erc1155Address\" : \"{{erc_1155_address}}\",\n    \"tokenId\" : 1,\n    \"amount\" : 200\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/depositErc1155"
+			},
+			"response": []
+		},
+		{
+			"name": "startSwapFromErc20ToErc1155",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"erc20Address\" : \"{{erc_20_address}}\",\n    \"counterParty\" : \"{{accountBankB}}\",\n\t\"amountSent\": 30,\n\t\"tokenIdReceived\" : 1,\n    \"tokenReceivedAmount\" : 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/startSwapFromErc20ToErc1155"
+			},
+			"response": []
+		},
+		{
+			"name": "startSwapFromErc1155ToErc20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"erc20Address\" : \"{{erc_20_address}}\",\n    \"counterParty\" : \"{{accountBankB}}\",\n\t\"amountReceived\": 30,\n\t\"tokenIdSent\" : 1,\n    \"tokenSentAmount\" : 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/startSwapFromErc1155ToErc20"
+			},
+			"response": []
+		},
+		{
+			"name": "startSwapFromErc20ToErc20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"erc20AddressSent\" : \"{{erc_20_address}}\",\n    \"erc20AddressReceived\" : \"{{erc_20_address_test}}\",\n    \"counterParty\" : \"{{accountBankB}}\",\n    \"amountSent\": 50,\n    \"amountReceived\" : 60\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/startSwapFromErc20ToErc20"
+			},
+			"response": []
+		},
+		{
+			"name": "startSwapFromErc1155ToErc1155",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"counterParty\": \"{{accountBankB}}\",\n    \"tokenIdReceived\": 1,\n\t\"tokenReceivedAmount\": 60,\n\t\"tokenIdSent\": 1,\n    \"tokenSentAmount\": 50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/startSwapFromErc1155ToErc1155"
+			},
+			"response": []
+		},
+		{
+			"name": "completeSwapFromErc20ToErc1155",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"swapId\" : 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/completeSwapFromErc20ToErc1155"
+			},
+			"response": []
+		},
+		{
+			"name": "completeSwapFromErc20ToErc20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"swapId\" : 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/completeSwapFromErc20ToErc20"
+			},
+			"response": []
+		},
+		{
+			"name": "completeSwapFromErc1155ToErc20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"swapId\" : 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/completeSwapFromErc1155ToErc20"
+			},
+			"response": []
+		},
+		{
+			"name": "completeSwapFromErc1155ToErc1155",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"swapId\" : 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/completeSwapFromErc1155ToErc1155"
+			},
+			"response": []
+		},
+		{
+			"name": "withdrawErc20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"erc20Address\": \"{{erc_20_address}}\",\n    \"amount\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_b_zapp}}/withdrawErc20"
+			},
+			"response": []
+		},
+		{
+			"name": "withdrawErc1155",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tokenId\": 1,\n    \"amount\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/withdrawErc1155"
+			},
+			"response": []
+		},
+		{
+			"name": "cancelSwap",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"swapId\" : 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{bank_a_zapp}}/cancelSwap"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllCommitments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{bank_a_zapp}}/getAllCommitments"
+			},
+			"response": []
+		},
+		{
+			"name": "getSharedKeys",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{bank_a_zapp}}/getSharedKeys?recipientPubKey=2896870047453904306852556494815455180533065883379047246540688797413861815957",
+					"host": [
+						"{{bank_a_zapp}}"
+					],
+					"path": [
+						"getSharedKeys"
+					],
+					"query": [
+						{
+							"key": "recipientPubKey",
+							"value": "2896870047453904306852556494815455180533065883379047246540688797413861815957"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getZKPPublicKey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{bank_a_zapp}}/getZKPPublicKey/:address",
+					"host": [
+						"{{bank_a_zapp}}"
+					],
+					"path": [
+						"getZKPPublicKey",
+						":address"
+					],
+					"variable": [
+						{
+							"key": "address",
+							"value": "{{accountBankA}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "shielded-balance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{bank_a_zapp}}/shielded-balance?erc20Address[]=0xx3&erc20Address[]=0x444",
+					"host": [
+						"{{bank_a_zapp}}"
+					],
+					"path": [
+						"shielded-balance"
+					],
+					"query": [
+						{
+							"key": "erc20Address[]",
+							"value": "0xx3"
+						},
+						{
+							"key": "erc20Address[]",
+							"value": "0x444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{bank_a_zapp}}/stats"
+			},
+			"response": []
+		},
+		{
+			"name": "backupData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "{{bank_a_zapp}}/backupData"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bank_a_zapp",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "bank_b_zapp",
+			"value": "http://localhost:3003",
+			"type": "string"
+		},
+		{
+			"key": "swapShieldAddress",
+			"value": "0xc5a5C42992dECbae36851359345FE25997F5C42d",
+			"type": "string"
+		},
+		{
+			"key": "bank_a_timber",
+			"value": "http://localhost:3100",
+			"type": "string"
+		},
+		{
+			"key": "bank_b_timber",
+			"value": "http://localhost:3101",
+			"type": "string"
+		},
+		{
+			"key": "accountBankA",
+			"value": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+			"type": "string"
+		},
+		{
+			"key": "accountBankB",
+			"value": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+			"type": "string"
+		},
+		{
+			"key": "erc_20_address",
+			"value": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+			"type": "string"
+		},
+		{
+			"key": "erc_20_address_test",
+			"value": "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
+			"type": "string"
+		},
+		{
+			"key": "erc_1155_address",
+			"value": "0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE",
+			"type": "string"
+		}
+	]
+}
