@@ -44,3 +44,6 @@ Você deverá parar a instancia que esta com a chave registrada incorretamente c
 ### O StartSwap ocorre mas a contraparte não recebe o commitment - conexão websocket quebrada
 
 Outra possibilidade é seu servidor Besu ter chegado no limite de conexões simultâneas ou a conexão entre a sua instância Starlight SwapEscrow esta falhando/caindo. Verifique seu nó Besu, baixe e inicie novamente a sua instancia, execute o backup através do endpoint POST /backupdata e verifique se agora o commitment salvo no seu banco de dados.
+
+
+[<<< Voltar](../StarlightDvpRealDigital.md)

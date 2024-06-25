@@ -144,11 +144,11 @@ O foco será a interação via Postman, mas também é possível interagir via f
 
 ### 3.1 - Configurar scripts - via Postman
 
-Existem duas coleções do Postman na raiz do projeto. Na coleção `StepByStep`, encontram-se as sequências padrão de interação com a aplicação. Na coleção `SwapEscrow.postman_collection.json`, há rotas adicionais para depuração da aplicação.
+Na coleção SwapEscrow.postman_collection.json, encontram-se os endpoints de interação com a aplicação.
 
 Para configurar o Postman, siga os passos abaixo:
 
-- Importe o arquivo [SwapEscrow.postman_collection.json](swapEscrow.postman_collection.json) no [Postman](https://www.postman.com/downloads/).
+- Importe o arquivo [SwapEscrow.postman_collection.json](./SwapEscrow.postman_collection.json) no [Postman](https://www.postman.com/downloads/).
 - Dentro do Postman, clique no nome da pasta e defina as seguintes propriedades na aba variáveis:
   - `bank_a_zapp`: Servidor onde está rodando a sua aplicação, o valor default é `http://localhost:3000`
   - `swapShield_address`: Endereço do contrato de SwapShield na rede DREX
@@ -156,7 +156,6 @@ Para configurar o Postman, siga os passos abaixo:
   - `accountBankB`: A conta Ethereum da instituição que será sua contra-parte nas operações
   - `erc_1155_address`: Endereço do contrato do TPFt na rede DREX
   - `erc_20_address`: Endereço do contrato de real digital utilizado na troca na rede DREX
-  - `erc_20_address_test`: Endereço de outro possível contrato de real tokenizado utilizado na troca na rede DREX
   - `bank_b_zapp`: *Campo não obrigatório* - Servidor onde está rodando a aplicação de sua contra-parte o valor default é `http://localhost:3003`. Este campo é útil caso esteja testando entre dois bancos próprios.
 
 <p align="center">
@@ -195,17 +194,18 @@ A aplicação possui um frontend que permite a interação com os contratos. Par
 
 Para interagir com o sistema, pode-se utilizar o Postman ou o frontend da aplicação. A seguir, serão apresentadas as 3 ações disponíveis na aplicação e suas variações (Depositar, Trocar e Retirar).
 
-1) [**Depositar**](./docs/DEPOSITOS#.MD) - Há dois tipos de depósito, um para Real Digital e outro para TPFt:
+1) [**Depositar**](./docs/DEPOSITOS.md) - Há dois tipos de depósito, um para Real Digital e outro para TPFt:
    - [**Depositar Real Digital (ERC20)**: `/depositErc20`](./docs/DEPOSITOS.md#a-depositar-real-tokenizado-erc20--depositerc20)
    - [**Depositar TPFt (ERC1155)**: `/depositErc1155`](./docs/DEPOSITOS.md#b-depositar-tpft-erc1155--depositerc1155)
 
-2) [**Trocar**](./docs/SWAPS.md)) - As trocas (ou swaps) ocorrem em duas etapas. A parte que irá propor a troca, começará o swap por meio das rotas de `/startSwap`. Ao fim da proposta, será gerado um ID de troca, a contraparte pode completar a troca através desse ID gerado, utilizando as rotas de `/completeSwap`. Há 4 formas de troca, que depende do que será enviado e recebido, sendo elas:
+2) [**Trocar**](./docs/SWAPS.md) - As trocas (ou swaps) ocorrem em duas etapas. A parte que irá propor a troca, começará o swap por meio das rotas de `/startSwap`. Ao fim da proposta, será gerado um ID de troca, a contraparte pode completar a troca através desse ID gerado, utilizando as rotas de `/completeSwap`. Há 2 formas de troca, que depende do que será enviado e recebido, sendo elas:
 
-   - [**Trocar Real Digital por TPFt**: `/startSwapErc20ToErc1155`](./docs/SWAPS.md)
-   - [**Trocar TPFt por Real Digital**: `/startSwapErc1155ToErc20`](./docs/SWAPS.md))
+   - [**Trocar Real Digital por TPFt**: `/startSwapErc20ToErc1155`](./docs/SWAPS.md#a-começar-um-swap-real-digital-erc20-para-tpft-erc1155-startswapfromerc20toerc1155)
+   - [**Trocar TPFt por Real Digital**: `/startSwapErc1155ToErc20`](./docs/SWAPS.md#c-começar-um-swap-tpft-erc1155-para-real-digitalerc20-startswapfromerc1155toerc20)
 
-3) [**Retirar**]() - Há dois tipos de retirada, um para Real Digital e outro para TPFt:
+3) **Retirar** - Há dois tipos de retirada, um para Real Digital e outro para TPFt:
 
-   - [**Retirar Real Digital (ERC20)**: `/withdrawErc20`]()
-   - [**Retirar TPFt (ERC1155)**: `/withdrawErc1155`]()
+   - **Retirar Real Digital (ERC20)**: `/withdrawErc20`
+   - **Retirar TPFt (ERC1155)**: `/withdrawErc1155`
 
+[<<< Voltar](Starlight.md)
