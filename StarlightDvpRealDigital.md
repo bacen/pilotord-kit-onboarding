@@ -144,7 +144,7 @@ O foco será a interação via Postman, mas também é possível interagir via f
 
 ### 3.1 - Configurar scripts - via Postman
 
-Na coleção SwapEscrow.postman_collection.json, encontram-se os endpoints de interação com a aplicação.
+Na coleção SwapEscrow.postman_collection.json encontram-se os endpoints de interação com a aplicação.
 
 Para configurar o Postman, siga os passos abaixo:
 
