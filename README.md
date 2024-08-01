@@ -10,3 +10,4 @@ Este repositório contém as informações necessárias para a participação no
 * [Exemplos de interação com os smart contracts](exemplos/README.md)
 * [Privacidade - Anonymous Zether](AnonymousZether.md)
 * [Privacidade - Starlight](Starlight.md)
+* [Privacidade - Rayls](Rayls.md)
