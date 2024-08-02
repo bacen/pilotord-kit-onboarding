@@ -221,8 +221,8 @@ A solução proposta garante a privacidade das transações que trafegam pela Pr
     - `accountBuyer`: conta da PL do participante comprador - dado do tipo `address`;
     - `tpftData`: "metadados" de um TPFt (token ERC-1155);
       - `acronym`: acrônimo do TPFt, por ex. "LTN" - dado do tipo `string`;
-      - `code`: código do TPFt, por ex. "BRSTNCLTN7D3" - dado do tipo `string`;
-      - `maturityDate`: data de maturidade do TPFt, formato UNIX timestamp, por ex. "1719411661" - dado do tipo `inteiro`;
+      - `code`: código do TPFt, por ex. "100000" - dado do tipo `string`;
+      - `maturityDate`: data de vencimento do TPFt, formato UNIX timestamp, por ex. "1797292800" - dado do tipo `inteiro`;
     - `tpftAmount`: quantidade de TPFt - dado do tipo `inteiro`;
     - `price`: preço unitário por TPFt - dado do tipo `inteiro`;
     - `status`: estado inicial da operação, para vendedor, é sempre igual a 1, já para comprador, sempre igual a 2, independentemente do estado anterior da operação - dado do tipo `inteiro`;
