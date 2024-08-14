@@ -44,11 +44,32 @@ Foram disponibilizados vídeos explicativos sobre a plataforma [aqui](https://ww
 Antes de irmos à experimentação com os exemplos, vejamos algumas informações relevantes:
 
 - Parâmetros:
-    - Chain Id dos Participantes: essa informação deve ser preenchida com o respectivo código ISPB da instituição participante;
-    - Chain Id da Commit Chain: `381660001`;
     - Cada Participante terá sua conta Default (conta de reservas);
     - Cada Participante terá uma wallet (conta) para clientes;
     - Resource Id: essa informação é dada pelo operador da Private Subnet e corresponde a um identificador único para cada ativo que circula na rede;
+    - Chain Id da Commit Chain: `381660001`;
+    - Chain Id dos Participantes: essa informação deve ser preenchida com o respectivo código ISPB da instituição participante;
+
+| PARTICIPANTE                      | CHAIN ID  |
+| --------------------------------- | --------- |
+| BANCO BTG PACTUAL S.A.            | 30306294  |
+| BANCO GENIAL	                    | 45246410  |
+| BANCO INTER	                    | 416968    |
+| BANCO SICOOB S.A.	                | 2038233   |
+| BCO B3 S.A.	                    | 997185    |
+| BCO BRADESCO S.A.	                | 60746948  |
+| BCO BV S.A	                    | 1858775   |
+| BCO DO BRASIL S.A.	            | 191       |
+| BCO RIBEIRAO PRETO S.A. (ABBC)	| 517645    |
+| BCO SANTANDER (BRASIL) S.A.	    | 90400888  |
+| CAIXA ECONOMICA FEDERAL	        | 360306    |
+| ITAÚ UNIBANCO S.A.	            | 60701190  |
+| NU PAGAMENTOS - IP	            | 18236120  |
+| BCO ABC BRASIL S.A.	            | 28195667  |
+| BCO ARBI S.A.	                    | 54403563  |
+| BCO XP S.A.	                    | 33264668  |
+
+
 - Onde encontrar os endereços dos contratos: no momento do setup, imprime-se no console o endereço dos contratos deployados;
 - Averiguação de privacidade: para tanto, acessar o ["How To"](./docs/RaylsHowTo.md).
 - Todas as informações por parte do Banco Central já estão preenchidas no arquivo [.env](https://github.com/raylsnetwork/piloto_rd/blob/main/.env.example). Consulte o roteiro de execução para mais detalhes;
