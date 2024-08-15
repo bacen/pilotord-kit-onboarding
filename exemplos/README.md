@@ -51,4 +51,13 @@ Operação 1002: Cancelamento de liquidação de oferta pública.
 [Exemplo 15](example15.ts):
 Operação 1052: Cancelamento de operação de compra e venda entre participantes/clientes.
 
+- [Saque de valor financeiro armazenado no contrato pelo participante ou cliente](example16.ts):
+     Permite que um participante ou cliente realize o saque do valor financeiro armazenado no contrato referente a pagamento de resgate de TPFt que não foi bem-sucedido.
+
+- [Saque do valor financeiro armazenado no contrato por uma autoridade](example17.ts):
+     Permite que uma carteira de autoridade realize o saque, para uma carteira de participante ou cliente, do valor financeiro armazenado no contrato referente a pagamento de resgate de TPFt que não foi bem-sucedido.
+
+- [Consulta de valor financeiro armazenado no contrato](example18.ts):
+      Fornece a consulta de valor financeiro referente a pagamento de resgate de TPFt que não foi bem-sucedido.
+
 [<<< Voltar](../README.md)

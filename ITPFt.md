@@ -277,3 +277,35 @@ Função externa que retorna o status de pausa para um determinado ID de TPFt.
 | ---- | ---- | ----------- |
 | [0] | bool | Retorna true se o TPFt está pausado para operações, false se não está. |
 
+### burn
+
+```solidity
+function burn(address from, uint256 tpftId, uint256 tpftAmount) external
+```
+
+Função para realizar a baixa de um TPFt pelo seu ID.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | address | Endereço da carteira que será realizada a baixa do TPFt. |
+| tpftId | uint256 | ID do TPFt. |
+| tpftAmount | uint256 | Quantidade de TPFt a ser realizada a baixa. |
+
+### burn
+
+```solidity
+function burn(address from, struct ITPFt.TPFtData tpftData, uint256 tpftAmount) external
+```
+
+Função para realizar a baixa de um TPFt pelo TPFtData.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| from | address | Endereço da carteira que será realizada a baixa do TPFt. |
+| tpftData | struct ITPFt.TPFtData | Estrutura de dados do TPFt, que incluem as seguintes informações: <br />- `acronym`: A sigla do TPFt. <br />- `code`: O código único do TPFt. <br />- `maturityDate`: A data de vencimento do TPFt, representada como um valor numérico (timestamp Unix). |
+| tpftAmount | uint256 | Quantidade de TPFt a ser realizada a baixa. |
+
