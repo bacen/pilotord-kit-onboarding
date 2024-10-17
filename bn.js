@@ -150,10 +150,7 @@
     }
 
     this.length = Math.ceil(number.length / 3);
-    this.words = new Array(this.length);
-    for (var i = 0; i < this.length; i++) {
-      this.words[i] = 0;
-    }
+    this.words = Array(this.length).fill(0);
 
     var j, w;
     var off = 0;
@@ -210,10 +207,7 @@
   BN.prototype._parseHex = function _parseHex (number, start) {
     // Create possibly bigger array to ensure that it fits the number
     this.length = Math.ceil((number.length - start) / 6);
-    this.words = new Array(this.length);
-    for (var i = 0; i < this.length; i++) {
-      this.words[i] = 0;
-    }
+    this.words = Array(this.length).fill(0);
 
     var j, w;
     // Scan 24-bit chunks and add them to the number
