@@ -1,6 +1,6 @@
 ## Habilitações
 
-Para executar as operações de liquidação de oferta pública (`TPFtOperation1002`) e liquidação de compra e venda (`TPFtOperation1052`) envolvendo Títulos Públicos Federais tokenizados (TPFt), é necessário que os participantes efetuem as seguintes habilitações para o contrato `TPFtDvP` realizar transações com os ativos de sua carteira:
+Para executar as operações de liquidação de oferta pública (`TPFtOperation1002`), liquidação de compra e venda (`TPFtOperation1052`), compra com Compromisso de Revenda (`TPFtOperation1054`) e recompra (`TPFtOperation1056`) envolvendo Títulos Públicos Federais tokenizados (TPFt), é necessário que os participantes efetuem as seguintes habilitações para o contrato `TPFtDvP` realizar transações com os ativos de sua carteira:
 
 - <span style="text-decoration: underline;">TPFt</span>: deve ser autorizada na carteira do participante ou cliente a manipulação do saldo de TPFt através do método `setApprovalForAll`, herdado do padrão ERC-1155, do contrato TPFt. Esta autorização somente precisa ser feita quando houver deploy de um novo contrato  `TPFtDvP`;
 
@@ -63,11 +63,47 @@ O detalhamento das habilitações por operação está representado no quadro ab
     <td style="text-align:center;">X</td>
     <td style="text-align:center;">X*</td>
     <td style="text-align:center;">X</td>
+    <td style="text-align:center;"></td>
+    <td style="text-align:center;"></td>
+  </tr>
+  <tr>
+    <td>TPFtOperation1052 (Cliente)</td>
+    <td></td>
+    <td></td>
+    <td style="text-align:center;">X*</td>
+    <td style="text-align:center;">X</td>
     <td style="text-align:center;">X</td>
     <td style="text-align:center;">X</td>
   </tr>
   <tr>
-    <td>TPFtOperation1052 (Cliente)</td>
+    <td>TPFtOperation1054 (Participante)</td>
+    <td style="text-align:center;">X</td>
+    <td style="text-align:center;">X</td>
+    <td style="text-align:center;">X*</td>
+    <td style="text-align:center;">X</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>TPFtOperation1054 (Participante-Cliente)</td>
+    <td></td>
+    <td></td>
+    <td style="text-align:center;">X*</td>
+    <td style="text-align:center;">X</td>
+    <td style="text-align:center;">X</td>
+    <td style="text-align:center;">X</td>
+  </tr>
+  <tr>
+    <td>TPFtOperation1056 (Participante)</td>
+    <td style="text-align:center;">X</td>
+    <td style="text-align:center;">X</td>
+    <td style="text-align:center;">X*</td>
+    <td style="text-align:center;">X</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>TPFtOperation1056 (Participante-Cliente)</td>
     <td></td>
     <td></td>
     <td style="text-align:center;">X*</td>

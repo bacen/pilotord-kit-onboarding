@@ -7,13 +7,13 @@ Os exemplos estarão escritos em Typescript usando o framework [Hardhat](https:/
 Esse código foi testado mas não foi feita nenhuma auditoria ou análise de vulnerabilidade. Não recomendamos o uso em produção, especialmente o uso de chaves privadas no arquivo de configuração do Hardhat.
 
 [Exemplo 1](example1.ts):
-    Enable Account / Mint and Burn.
+Enable Account / Mint and Burn.
 
 [Exemplo 2](example2.ts):
-    Buscar default account participant e realizar transferência de CBDC.
+Buscar default account participant e realizar transferência de CBDC.
 
 [Exemplo 3](example3.ts):
-    Participante ativando um endereço para um cliente e realizando uma emissão de DVt ou MEt.
+Participante ativando um endereço para um cliente e realizando uma emissão de DVt ou MEt.
 
 [Exemplo 4](example4.ts):
 Participante buscando o endereço de Real Digital no contrato de AddressDiscovery.
@@ -60,4 +60,21 @@ Operação 1052: Cancelamento de operação de compra e venda entre participante
 - [Consulta de valor financeiro armazenado no contrato](example18.ts):
       Fornece a consulta de valor financeiro referente a pagamento de resgate de TPFt que não foi bem-sucedido.
 
+- [Operação 1054](operation1054.ts):
+  Registro de operação de compromissada.
+
+- [Operação 1054](operation1054IntraDay.ts):
+  Registro de operação de compromissada intraday.
+
+- [Operação 1054](operation1054OpenReturnPrice.ts):
+  Registro de operação de compromissada com preço unitário de retorno aberto.
+
+- [Operação 1056](operation1056.ts):
+  Registro de operação de recompra e revenda.
+
 [<<< Voltar](../README.md)
+
+
+
+
+
