@@ -4,6 +4,7 @@
         "muirglacierblock": 0,
         "londonBlock": 2592800,
         "zeroBaseFee": true,
+        "shanghaiTime": 1737394200,
         "qbft": {
             "blockperiodseconds": 5,
             "epochlength": 30000,
