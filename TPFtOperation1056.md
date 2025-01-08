@@ -3,7 +3,7 @@
 ## TPFtOperation1056
 
 _Smart Contract_ responsável por permitir que participantes cadastrados no 
-Real Digital realizem a operação de recompra/revenda com preço previamente definido 
+Real Digital realizem a operação de recompra/revenda
 envolvendo Título Público Federal tokenizado (TPFt).
 
 ### constructor

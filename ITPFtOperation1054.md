@@ -3,8 +3,7 @@
 ## ITPFtOperation1054
 
 Interface responsável por permitir que participantes cadastrados no 
-Real Digital realizem a operação de compra/venda compromissada com preço de recompra/revenda definido e sem 
-acordo de livre movimentação envolvendo Título Público Federal tokenizado (TPFt) entre si e/ou seus clientes.
+Real Digital realizem a operação de compra/venda compromissada envolvendo Título Público Federal tokenizado (TPFt) entre si e/ou seus clientes.
 
 ### tradeRepo
 

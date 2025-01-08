@@ -3,7 +3,7 @@
 ## ITPFtOperation1056
 
 Interface responsável por permitir que participantes cadastrados no 
-Real Digital realizem a operação de recompra/revenda com preço previamente definido 
+Real Digital realizem a operação de recompra/revenda
 envolvendo Título Público Federal tokenizado (TPFt).
 
 ### tradeReverseRepo
