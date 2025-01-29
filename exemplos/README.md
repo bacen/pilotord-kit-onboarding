@@ -72,6 +72,9 @@ Operação 1052: Cancelamento de operação de compra e venda entre participante
 - [Operação 1056](operation1056.ts):
   Registro de operação de recompra e revenda.
 
+- [Transferência de DREX Varejo informando apenas a carteira de cliente de destino](example19.ts):
+  Dado uma carteira de cliente de destino, checa se a mesma pertence ao participante que está enviando a transação: se sim, faz a transferência simples de DREX Varejo; se não, chama o contrato de SwapOneStep
+
 [<<< Voltar](../README.md)
 
 
