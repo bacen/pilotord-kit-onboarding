@@ -8,14 +8,16 @@ import "./ZetherVerifier.sol";
 import "./BurnVerifier.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
 
-import "../selic/TPFt.sol";
+import "../selic/TPFtLogic.sol";
+import "../selic/TPFtStorage.sol";
 
 contract ZSCERC1155Restricted is ERC1155Holder {
 
     using Utils for uint256;
     using Utils for Utils.G1Point;
 
-    TPFt coin;
+    TPFtLogic coinLogic;
+    TPFtStorage coinStorage;
     ZetherVerifier zetherVerifier;
     BurnVerifier burnVerifier;
     uint256 public epochLength;
@@ -45,13 +47,13 @@ contract ZSCERC1155Restricted is ERC1155Holder {
      * Modificador de método: somente participantes podem iteragir com o zsc
     */
     modifier onlyParticipant {
-        require (coin.isEnabledAddress(msg.sender), "ZSCERC1155Restricted: Not authorized Account");
+        require (coinLogic.isEnabledAddress(msg.sender), "ZSCERC1155Restricted: Not authorized Account");
         _;
     }
 
     constructor(address _coin, address _zether, address _burn, uint256 _epochLength,uint256 _assetID) { // visibiility won't be needed in 7.0
         // epoch length, like block.time, is in _seconds_. 4 is the minimum!!! (To allow a withdrawal to go through.)
-        coin = TPFt(_coin);
+        coinStorage = TPFtStorage(_coin);
         zetherVerifier = ZetherVerifier(_zether);
         burnVerifier = BurnVerifier(_burn);
         epochLength = _epochLength;
@@ -130,8 +132,8 @@ contract ZSCERC1155Restricted is ERC1155Holder {
         Utils.G1Point memory scratch = pending[yHash][0];
         scratch = scratch.add(Utils.g().mul(bTransfer));
         pending[yHash][0] = scratch;
-        coin.safeTransferFrom(msg.sender, address(this), assetID, bTransfer, "fund to zether");
-        require(coin.balanceOf(address(this), assetID) <= MAX, "Fund pushes address past maximum value.");
+        coinStorage.safeTransferFrom(msg.sender, address(this), assetID, bTransfer, "fund to zether");
+        require(coinStorage.balanceOf(address(this), assetID) <= MAX, "Fund pushes address past maximum value.");
     }
 
     function transfer(ZetherVerifier.Transaction memory transaction) public returns (bool){
@@ -196,6 +198,6 @@ contract ZSCERC1155Restricted is ERC1155Holder {
         nonceSet.push(uHash);
 
         require(burnVerifier.verifyBurn(scratch[0], scratch[1], y, lastGlobalUpdate, u, msg.sender, proof), "Burn proof verification failed!");
-        coin.safeTransferFrom(address(this), msg.sender, assetID, bTransfer,"withdraw from zether");
+        coinStorage.safeTransferFrom(address(this), msg.sender, assetID, bTransfer,"withdraw from zether");
     }
 }
