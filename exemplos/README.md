@@ -75,6 +75,9 @@ Operação 1052: Cancelamento de operação de compra e venda entre participante
 - [Transferência de DREX Varejo informando apenas a carteira de cliente de destino](example19.ts):
   Dado uma carteira de cliente de destino, checa se a mesma pertence ao participante que está enviando a transação: se sim, faz a transferência simples de DREX Varejo; se não, chama o contrato de SwapOneStep
 
+- [Participante permitir um contrato ser executado na rede](permissionamentoContrato.ts):
+  Após o participante realizar o deploy do seu contrato na rede, é necessário dar a permissão para que esse contrato possa ser executado. Para isso é necessário adicionar o contrato como target no contrato de permissionamento.
+
 [<<< Voltar](../README.md)
 
 

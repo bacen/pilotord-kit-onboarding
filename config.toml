@@ -67,4 +67,4 @@ permissions-nodes-contract-enabled=true
 permissions-nodes-contract-address="0x0000000000000000000000000000000000009999"
 permissions-nodes-contract-version=2
 permissions-accounts-contract-enabled=true
-permissions-accounts-contract-address="0xb3f31049dADf7Ab0239afc2f04568CB19543044D"
+permissions-accounts-contract-address="0x359e4Ac15c34db530DC61C93D3E646103A569a0A"
