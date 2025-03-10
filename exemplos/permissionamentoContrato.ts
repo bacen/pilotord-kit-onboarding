@@ -4,8 +4,8 @@ import { ethers } from "hardhat";
 //exemplo de código para o participante realizar a permissão de um contrato para ser executado na rede
 async function permissionamentoContrato() {
 
-    //0xEd4ACCa0ae847CADb6c1212A13B975ae3b138b19 - prod nova versão 11/02/25
-    const rulesInstance = await ethers.getContractAt("AccountRules", "0xEd4ACCa0ae847CADb6c1212A13B975ae3b138b19");
+    //0x51FD57d1f7c9539986333C50978D2E9926300e27 - prod nova versão 10/03/25
+    const rulesInstance = await ethers.getContractAt("AccountRules", "0x51FD57d1f7c9539986333C50978D2E9926300e27");
 
 
     const listedContracts:Array<String> = ["endereço do contrato a ser permissionado"];
