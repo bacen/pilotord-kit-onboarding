@@ -1,6 +1,6 @@
 ## Habilitações
 
-Para executar as operações de liquidação de oferta pública (`TPFtOperation1002`), liquidação de compra e venda (`TPFtOperation1052`), compra com Compromisso de Revenda (`TPFtOperation1054`) e recompra (`TPFtOperation1056`) envolvendo Títulos Públicos Federais tokenizados (TPFt), é necessário que os participantes efetuem as seguintes habilitações para o contrato `TPFtDvP` realizar transações com os ativos de sua carteira:
+Para executar as operações de liquidação de oferta pública (`TPFtOperation1002`), compra e venda (`TPFtOperation1052`), compra e venda compromissada (`TPFtOperation1054`) e recompra e revenda (`TPFtOperation1056`) envolvendo Títulos Públicos Federais tokenizados (TPFt), é necessário que os participantes efetuem as seguintes habilitações para o contrato `TPFtDvP` realizar transações com os ativos de sua carteira:
 
 - <span style="text-decoration: underline;">TPFt</span>: deve ser autorizada na carteira do participante ou cliente a manipulação do saldo de TPFt através do método `setApprovalForAll`, herdado do padrão ERC-1155, do contrato TPFt. Esta autorização somente precisa ser feita quando houver deploy de um novo contrato  `TPFtDvP`;
 
@@ -114,13 +114,13 @@ O detalhamento das habilitações por operação está representado no quadro ab
 </table>
 
 
-| **DESCRIÇÃO**                                  |
-|----------------------------------------------|
-| **realDigital/enableAccount:** habilitar a carteira para operar Real Digital. |
-| **realDigital/approve:** habilitar o contrato `TPFtDvP` a realizar transações com o valor de Real Digital aprovado pela carteira.                                         |
-| **tpft/enableAddress:** habilitar a carteira para operar TPFt. _*Somente o Bacen pode habilitar e o participante deve solicitar via e-mail._                                        |
-| **tpft/setApprovalForAll:** habilitar o contrato `TPFtDvP` a realizar transações com TPFt pela carteira.  _*Esta autorização somente precisa ser feita quando houver deploy de um novo contrato_ `TPFtDvP`.                                     |
-| **realTokenizado/:enderecoContrato/enableAccount:** habilitar a carteira para operar Real Tokenizado.                                        |
-| **realTokenizado/:enderecoContrato/approve:** habilitar o contrato `TPFtDvP` a realizar transações com o valor de Real Tokenizado aprovado pela carteira.                                        |
+| **DESCRIÇÃO**                                                                                                                                                                                               |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **realDigital/enableAccount:** habilitar a carteira para operar Real Digital.                                                                                                                               |
+| **realDigital/approve:** habilitar o contrato `TPFtDvP` a realizar transações com o valor de Real Digital aprovado pela carteira.                                                                           |
+| **tpft/enableAddress:** habilitar a carteira para operar TPFt. _*O Bacen ou uma carteira default de um participante habilitado no TPFt e no RealDigital pode habilitar uma carteira no TPFt._               |
+| **tpft/setApprovalForAll:** habilitar o contrato `TPFtDvP` a realizar transações com TPFt pela carteira.  _*Esta autorização somente precisa ser feita quando houver deploy de um novo contrato_ `TPFtDvP`. |
+| **realTokenizado/:enderecoContrato/enableAccount:** habilitar a carteira para operar Real Tokenizado.                                                                                                       |
+| **realTokenizado/:enderecoContrato/approve:** habilitar o contrato `TPFtDvP` a realizar transações com o valor de Real Tokenizado aprovado pela carteira.                                                   |
 
-[<<< Voltar](smartcontractsTitulos.md)
+[<<< Voltar](smartcontracts.md)
