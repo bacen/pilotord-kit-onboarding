@@ -7,8 +7,8 @@ import abiITPFt from "../abi/ITPFt.json";
 export async function enableAccountTPFt(
     partipantOrAuthority: string,
     tpftAddress: string,
-    wallet: string)
-{
+    wallet: string,
+    cnpj8: number) {
     /**
      * Obtém contrato TPFt
      */
@@ -23,7 +23,12 @@ export async function enableAccountTPFt(
     const partipantOrAuthoritySigner = await ethers.getSigner(partipantOrAuthority);
 
     /**
-     * Aprova o contrato TPFtDvP a negociar TPFt
+     * conta ADMIN habilitando uma carteira
      */
     await TPFt.connect(partipantOrAuthoritySigner)["enableAddress(address)"](wallet);
+
+    /**
+     * Participante habilitado no TPFt habilitando uma carteira usando seu CNPJ8
+     */
+    await TPFt.connect(partipantOrAuthoritySigner)["enableAddress(uint256, address)"](cnpj8, wallet);
 }
