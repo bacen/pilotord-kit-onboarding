@@ -1,4 +1,4 @@
-import {ethers} from "hardhat";
+import { ethers } from "hardhat";
 import abiAddressDiscovery from "../abi/AddressDiscovery.json";
 
 async function main() {
@@ -6,7 +6,7 @@ async function main() {
     /**
      * ABI do Address Discovery
      */
-    const ABI_ADDRESS_DISCOVERY =  [
+    const ABI_ADDRESS_DISCOVERY = [
         {
             "inputs": [
                 {
@@ -296,6 +296,28 @@ async function main() {
      * exibe endereço do TPFt
      */
     console.log(tpftAddress);
+
+    /**
+     * Endereço do TPFtOperation1052
+     */
+    const tpftOperation1052Address = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFtOperation1052'));
+    /**
+     * Endereço do TPFtOperation1054
+     */
+    const tpftOperation1054Address = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFtOperation1054'));
+    /**
+     * Endereço do TPFtOperation1056
+     */
+    const tpftOperation1056Address = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFtOperation1056'));
+    /**
+     * Endereço do TPFtOperation1002
+     */
+    const tpftOperation1002Address = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFtOperation1002'));
+    /**
+     * Endereço do TPFtOperation1012
+     */
+    const tpftOperation1012Address = await addressDiscrovery.addressDiscovery(ethers.utils.id('TPFtOperation1012'));
+
 
 }
 
